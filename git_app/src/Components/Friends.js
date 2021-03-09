@@ -1,18 +1,17 @@
 import React from 'react'
+import Friend from './Friend'
 
 
-class Friend extends React.Component {
+function Friends (props) {
 
-    render(){
-        return(
-            <div>
-                <h3>Friend</h3>
-                {
-                    
-                }
-            </div>
-        )
-    }
+console.log(props.friendsData, 'friends')
+    return(
+        <div className='friendsContainer'>
+            {
+              props.friendsData.map(friend => (<Friend friend={friend} />))
+            }
+        </div>
+    )
 }
 
-export default Friend
+export default Friends
