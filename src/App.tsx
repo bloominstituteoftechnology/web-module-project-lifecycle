@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import 'fontsource-roboto'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 import { User, Follower } from './models/User.model'
 
@@ -63,10 +65,13 @@ class App extends React.Component<AppProps, AppState> {
     ) : <h2>Loading...</h2>
 
     return (
-      <div>
-        <h1>Github User Card</h1>
-        {toRender}
-      </div>
+      <>
+        <CssBaseline />
+        <div>
+          <h1>Github User Card</h1>
+          {toRender}
+        </div>
+      </>
     )
   }
 }
