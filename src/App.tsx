@@ -1,22 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 
+import { User, Follower } from './models/User.model'
+
+import UserCard from './components/UserCard'
+
 interface AppProps {
 
-}
-
-interface User {
-  username: string
-  avatar: string
-  url: string
-  location: string
-  followers: Follower[]
-}
-
-interface Follower {
-  username: string
-  avatar: string
-  url: string
 }
 
 interface AppState {
@@ -68,10 +58,14 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   render() {
+    const toRender = this.state.user ? (
+      <UserCard user={this.state.user}/>
+    ) : <h2>Loading...</h2>
+
     return (
       <div>
         <h1>Github User Card</h1>
-        {JSON.stringify(this.state.user)}
+        {toRender}
       </div>
     )
   }
