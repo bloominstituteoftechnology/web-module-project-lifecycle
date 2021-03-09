@@ -18,7 +18,7 @@ class App extends React.Component{
           })
         })
         .catch((err)=>{
-          console.log('error', err)
+          console.log('ComponentDidMount Error', err)
         })
     }
 
@@ -26,6 +26,19 @@ class App extends React.Component{
       this.setState({
         userInput: e.target.value
       })
+    }
+
+    onSubmit = (e) => {
+      e.preventDefault();
+      axios.get(`https://api.github.com/users/${this.state.userInput}`)
+        .then((resp)=>{
+            this.setState({
+              user: resp.data
+            })
+        })
+        .catch((err)=>{
+          console.log("onSubmit Error:", err)
+        })
     }
 
   render(){
