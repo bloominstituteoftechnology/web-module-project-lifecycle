@@ -32,7 +32,6 @@ class App extends React.Component<AppProps, AppState> {
   componentDidMount() {
     axios.get(`${BASE_URL}/lindellcarternyc`)
       .then(res => {
-        console.log(res)
         const { login, avatar_url, html_url, location, id } = res.data
         const user: User = {
           username: login,
