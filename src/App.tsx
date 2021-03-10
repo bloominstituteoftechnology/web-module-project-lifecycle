@@ -8,6 +8,8 @@ import Container from '@material-ui/core/Container'
 
 import { User, Follower } from './models/User.model'
 
+import { BASE_URL, fetchUser } from './api'
+
 import UserCard from './components/UserCard'
 
 interface AppProps {
@@ -17,8 +19,6 @@ interface AppProps {
 interface AppState {
   user: User | null
 }
-
-const BASE_URL = 'https://api.github.com/users'
 
 class App extends React.Component<AppProps, AppState> {
   constructor(props: { }) {
@@ -62,6 +62,11 @@ class App extends React.Component<AppProps, AppState> {
       .catch(err => {
         console.error(err)
       })
+    // fetchUser('lindellcarternyc')
+    //   .then(user => this.setState({ user }))
+    //   .catch(err => {
+    //     console.error(err)
+    //   })
   }
 
   render() {
