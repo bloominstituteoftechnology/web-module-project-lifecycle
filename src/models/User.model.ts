@@ -1,4 +1,5 @@
 export interface User {
+    id: number
     username: string
     avatar: string
     url: string
@@ -7,6 +8,7 @@ export interface User {
 }
 
 export interface Follower {
+    id: number
     username: string
     avatar: string
     url: string
