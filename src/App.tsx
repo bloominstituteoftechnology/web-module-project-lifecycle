@@ -4,6 +4,8 @@ import axios from 'axios'
 import 'fontsource-roboto'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
+import Container from '@material-ui/core/Container'
+
 import { User, Follower } from './models/User.model'
 
 import UserCard from './components/UserCard'
@@ -30,13 +32,15 @@ class App extends React.Component<AppProps, AppState> {
   componentDidMount() {
     axios.get(`${BASE_URL}/lindellcarternyc`)
       .then(res => {
-        const { login, avatar_url, html_url, location } = res.data
+        console.log(res)
+        const { login, avatar_url, html_url, location, id } = res.data
         const user: User = {
           username: login,
           avatar: avatar_url,
           url: html_url,
           location,
-          followers: []
+          followers: [],
+          id
         }
 
         axios.get(`${BASE_URL}/lindellcarternyc/followers`)
@@ -45,7 +49,8 @@ class App extends React.Component<AppProps, AppState> {
               const follower: Follower = {
                 username: u.login,
                 url: u.html_url,
-                avatar: u.avatar_url
+                avatar: u.avatar_url,
+                id: u.id
               }
               user.followers.push(follower)
             })
@@ -68,10 +73,10 @@ class App extends React.Component<AppProps, AppState> {
     return (
       <>
         <CssBaseline />
-        <div>
+        <Container maxWidth="sm">
           <h1>Github User Card</h1>
           {toRender}
-        </div>
+        </Container>
       </>
     )
   }
