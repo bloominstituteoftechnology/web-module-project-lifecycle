@@ -26,24 +26,14 @@ class App extends React.Component{
     }))
   }
 
-  handleChange = (e) => {}
-
   toggle = () => this.setState(prevState =>({isOpen: !prevState.isOpen}));
     
-  
-
-  // handleSubmit = (e) => {
-  //   preventDefault()
-
-  // }
-
-
   render() {
 
     return(
       <div className='container'>
         <div className='userCardDiv'>
-          <UserCard userData={this.state.userData} isOpen={this.state.isOpen} toggle={this.toggle} />
+          <UserCard  userData={this.state.userData} isOpen={this.state.isOpen} toggle={this.toggle} />
         </div>
         <div className='formContainer'>
           <Form />

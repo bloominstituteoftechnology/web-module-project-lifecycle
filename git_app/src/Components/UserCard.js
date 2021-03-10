@@ -14,8 +14,8 @@ class UserCard extends React.Component {
     console.log(this.props.toggle)
     
     return(
-        <div>
-            <CardImg top width="100%" src={userData.avatar_url} alt="Card image cap" />
+        <div className='userCardDiv'>
+            <CardImg width="100" src={userData.avatar_url} alt="Card image cap" />
             <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Show More</Button>
             <Collapse isOpen={isOpen}>
                 <Card>
@@ -25,6 +25,10 @@ class UserCard extends React.Component {
                     </CardBody>
                 </Card>
             </Collapse>
+            <div className='imgDiv'>
+                <h4>Here is my current Git-Hub contribution callender.</h4>
+                <img src="http://ghchart.rshah.org/l-steinmacher" alt="l-steinmacher's Github chart" />
+            </div>
         </div>
     )
     }

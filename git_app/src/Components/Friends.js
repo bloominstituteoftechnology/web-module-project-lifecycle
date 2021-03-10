@@ -6,7 +6,7 @@ function Friends (props) {
 
     return(
         <div  className='friendsContainer'>
-            <h3>here are some rather talented people on Git-hub!</h3>
+            <h3>Here are some rather talented people on Git-hub!</h3>
             {
               props.friendsData.map(friend => (<Friend friend={friend} isOpen={props.isOpen} toggle={props.toggle}/>))
             }
