@@ -1,28 +1,36 @@
 import React from 'react'
 import Form from './Components/Form'
 import Friends from './Components/Friends'
+import UserCard from './Components/UserCard'
 import './App.css';
 import axios from 'axios';
 
 class App extends React.Component{
   state = {
-    friendsData: []
+    userData: [],
+    friendsData: [],
+    isOpen: false,
   }
 
   componentDidMount(){
-    axios.get('https://api.github.com/users/l-steinmacher/followers')
-    .then(res => {
-      this.setState({friendsData: res.data})
-    })
-    .catch(err => {
-      debugger
-      alert(err, 'Error')
-    })
+    axios.all([
+      axios.get("https://api.github.com/users/l-steinmacher"),
+      axios.get("https://api.github.com/users/L-Steinmacher/followers"),
+    ])
+    .then(axios.spread((user, friends) => {
+      console.log(user, friends)
+      this.setState({
+        userData: user.data,
+      friendsData: friends.data,
+      })
+    }))
   }
 
-  handleChange = (e) => {
+  handleChange = (e) => {}
+
+  toggle = () => this.setState(prevState =>({isOpen: !prevState.isOpen}));
     
-  }
+  
 
   // handleSubmit = (e) => {
   //   preventDefault()
@@ -31,15 +39,17 @@ class App extends React.Component{
 
 
   render() {
-    console.log(this.state.friendsData, 'friends')
+
     return(
-      <div>
-        <h1>My Git-hub followers!</h1>
+      <div className='container'>
+        <div className='userCardDiv'>
+          <UserCard userData={this.state.userData} isOpen={this.state.isOpen} toggle={this.toggle} />
+        </div>
         <div className='formContainer'>
           <Form />
         </div>
         <div className='friendContainer'>
-          <Friends friendsData={this.state.friendsData} />
+          <Friends friendsData={this.state.friendsData} isOpen={this.state.isOpen} toggle={this.toggle} />
         </div>
       </div>
     )
