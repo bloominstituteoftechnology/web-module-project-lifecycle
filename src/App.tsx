@@ -1,14 +1,12 @@
 import React from 'react'
-import axios from 'axios'
-
 import 'fontsource-roboto'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import Container from '@material-ui/core/Container'
 
-import { User, Follower } from './models/User.model'
+import { User } from './models/User.model'
 
-import { BASE_URL, fetchUser } from './api'
+import { getUser } from './api'
 
 import UserCard from './components/UserCard'
 
@@ -30,43 +28,55 @@ class App extends React.Component<AppProps, AppState> {
   }
 
   componentDidMount() {
-    axios.get(`${BASE_URL}/lindellcarternyc`)
-      .then(res => {
-        const { login, avatar_url, html_url, location, id } = res.data
-        const user: User = {
-          username: login,
-          avatar: avatar_url,
-          url: html_url,
-          location,
-          followers: [],
-          id
-        }
-
-        axios.get(`${BASE_URL}/lindellcarternyc/followers`)
-          .then(res => {
-            res.data.forEach((u: any) => {
-              const follower: Follower = {
-                username: u.login,
-                url: u.html_url,
-                avatar: u.avatar_url,
-                id: u.id
-              }
-              user.followers.push(follower)
-            })
-            this.setState({ user })
-          })
-          .catch(err => {
-            console.error(err)
-          })
-      })
+    getUser('lindellcarternyc')
+      .then(user => this.setState({ user }))
       .catch(err => {
         console.error(err)
       })
-    // fetchUser('lindellcarternyc')
-    //   .then(user => this.setState({ user }))
+    // getFollowers('lindellcarternyc')
+    //   .then(val =>{
+    //     console.log('getFollowers: val ', val)
+    //   })
+    //   .catch(err => {
+    //     console.log('getFollowers err', err)
+    //   })
+    // axios.get(`${BASE_URL}/lindellcarternyc`)
+    //   .then(res => {
+    //     const { login, avatar_url, html_url, location, id } = res.data
+    //     const user: User = {
+    //       username: login,
+    //       avatar: avatar_url,
+    //       url: html_url,
+    //       location,
+    //       followers: [],
+    //       id
+    //     }
+
+    //     axios.get(`${BASE_URL}/lindellcarternyc/followers`)
+    //       .then(res => {
+    //         res.data.forEach((u: any) => {
+    //           const follower: Follower = {
+    //             username: u.login,
+    //             url: u.html_url,
+    //             avatar: u.avatar_url,
+    //             id: u.id
+    //           }
+    //           user.followers.push(follower)
+    //         })
+    //         this.setState({ user })
+    //       })
+    //       .catch(err => {
+    //         console.error(err)
+    //       })
+    //   })
     //   .catch(err => {
     //     console.error(err)
     //   })
+    // // fetchUser('lindellcarternyc')
+    // //   .then(user => this.setState({ user }))
+    // //   .catch(err => {
+    // //     console.error(err)
+    // //   })
   }
 
   render() {
