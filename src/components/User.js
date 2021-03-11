@@ -21,7 +21,9 @@ class User extends Component {
     render() {
         // destructure state
         const { user } = this.state;
+
         if (!user) return <p>Loading Data ...</p>
+        
         return (
             <div>
                 <img style={{ width: "150px", borderRadius: "50%" }}src={user.avatar_url} alt={user.name} />
