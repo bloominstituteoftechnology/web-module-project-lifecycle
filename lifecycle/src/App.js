@@ -1,25 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import axios from 'axios'
+import AppCss from './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+constructor(props) {
+  super(props)
+
+  this.state = {
+     gitUser: '',
+     gitRepos: '',
+     gitFollowers: '',
+     gitFollowersUrl: '',
+     gitFollowing: '',
+     gitFollowingUrl: '',
+     gitOrganizations: ''
+  }
 }
+
+  componentDidMount(){
+    axios.get("https://api.github.com/users/liliana-leyva")
+      .then(res=>{
+        console.log('Response from API',res)
+        this.setState({
+          ...this.state,
+          gitUser: res.data.name,
+          gitRepos: res.data.public_repos,
+          gitAvatar:res.data.avatar_url,
+          gitFollowers: res.data.followers,
+          gitFollowersUrl: res.data.followers_url,
+          gitFollowing: res.data.following,
+          gitFollowingUrl: res.data.following_url,
+          gitOrganizations: res.data.organizations_url
+        })
+      })
+      .catch(err=>console.error('unable to fetch user:',err.name))
+  }
+  
+      
+    render(){
+      return(
+      <>
+       <h1>Git Hub</h1>
+       <div >
+        <p>{`Git User: ${this.state.gitUser}`}</p>
+        <p>{`Repos: ${this.state.gitRepos}`}</p>
+        <img key={this.state.gitAvatar} src={this.state.gitAvatar}></img>
+       </div>
+       <div>
+        <p>{`Followers :${this.state.gitFollowers}`}</p>
+        <img src={this.state.gitFollowersUrl}/>
+        <p>{`Following: ${this.state.gitFollowing}`}</p>
+        <img src={this.state.gitFollowingUrl}/>
+       </div>
+       <div>
+        <p>Organizations</p>
+        <img src={this.state.gitOrganizations}/>
+       </div>
+      
+      
+      </>
+      )
+    }
+}
+
+
+
+
 
 export default App;
