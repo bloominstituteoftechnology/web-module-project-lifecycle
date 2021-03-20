@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import AppCss from './App.css'
+import {FaGithub} from 'react-icons/fa'
 
 class App extends React.Component {
 constructor(props) {
@@ -27,9 +28,7 @@ constructor(props) {
           gitRepos: res.data.public_repos,
           gitAvatar:res.data.avatar_url,
           gitFollowers: res.data.followers,
-          gitFollowersUrl: res.data.followers_url,
           gitFollowing: res.data.following,
-          gitFollowingUrl: res.data.following_url,
           gitOrganizations: res.data.organizations_url
         })
       })
@@ -40,22 +39,26 @@ constructor(props) {
     render(){
       return(
       <>
-       <h1>Git Hub</h1>
-       <div >
-        <p>{`Git User: ${this.state.gitUser}`}</p>
-        <p>{`Repos: ${this.state.gitRepos}`}</p>
-        <img key={this.state.gitAvatar} src={this.state.gitAvatar}></img>
+      <div className="header"> 
+        <h1>Git Hub</h1>
+        <FaGithub className="git"/>
+      </div>
+      
+       <div className="gitCard" >
+         <div className="data">
+          <p>{`Name: ${this.state.gitUser}`} </p>
+          <p>{`Repositories: ${this.state.gitRepos}`}</p>
+          <p>{`Followers :${this.state.gitFollowers}`}</p>
+          <p>{`Following: ${this.state.gitFollowing}`}</p>
+         </div>
+        <img  className= "avatar" key={this.state.gitAvatar} src={this.state.gitAvatar}></img>
        </div>
-       <div>
-        <p>{`Followers :${this.state.gitFollowers}`}</p>
-        <img src={this.state.gitFollowersUrl}/>
-        <p>{`Following: ${this.state.gitFollowing}`}</p>
-        <img src={this.state.gitFollowingUrl}/>
-       </div>
-       <div>
+       
+       
+       {/*<div>
         <p>Organizations</p>
         <img src={this.state.gitOrganizations}/>
-       </div>
+       </div>*/}
       
       
       </>
