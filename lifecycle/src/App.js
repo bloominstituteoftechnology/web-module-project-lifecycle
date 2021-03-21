@@ -46,7 +46,7 @@ constructor(props) {
       
        <div className="gitCard" >
          <div className="data">
-          <p>{`Name: ${this.state.gitUser}`} </p>
+          <p>{`User name: ${this.state.gitUser}`} </p>
           <p>{`Repositories: ${this.state.gitRepos}`}</p>
           <p>{`Followers :${this.state.gitFollowers}`}</p>
           <p>{`Following: ${this.state.gitFollowing}`}</p>
