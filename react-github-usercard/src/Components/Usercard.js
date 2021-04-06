@@ -10,6 +10,7 @@ class Usercard extends React.Component {
         console.log(users)
         return (
             <div className='usercard'>
+                {/* <h2>I am a usercard dummy</h2> */}
                 <div>
                     <img alt='Github user avatar' src={`${users.data.avatar_url}`}/>
                 </div>
