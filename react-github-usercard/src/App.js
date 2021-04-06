@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 
+import UsercardList from './Components/UsercardList'
+
 // Getting Feet Wet
 
 
@@ -42,6 +44,7 @@ class App extends React.Component {
        <h1>
          Welcome to the Github Usercard Application
         </h1>
+        <UsercardList />
       </div>
     )
   }
