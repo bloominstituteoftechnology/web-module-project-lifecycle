@@ -7,7 +7,7 @@ class Usercard extends React.Component {
 
     render() {
         const { users } = this.props;
-        console.log(users)
+        
         return (
             <div>
                 <div>
