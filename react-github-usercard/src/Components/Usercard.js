@@ -10,8 +10,16 @@ class Usercard extends React.Component {
         console.log(users)
         return (
             <div>
-                <h3>Example Usercard!</h3>
-                <h3>{users.data.login}</h3>
+                <div>
+                    <img src={`${users.data.avatar_url}`}/>
+                </div>
+                <div>
+                    <h3>{users.data.login}</h3>
+                    <p>{users.data.url}</p>
+                    <p>{`Followers: ${users.data.followers}`}</p>
+                    <p>{`Following: ${users.data.following}`}</p>
+                </div>
+                
             </div>
         )
     }
