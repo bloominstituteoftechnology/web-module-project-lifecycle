@@ -1,4 +1,5 @@
 import React from 'react';
+import Usercard from './Usercard'
 
 class UsercardList extends React.Component {
     componentDidMount() {
@@ -9,6 +10,7 @@ class UsercardList extends React.Component {
         return(
             <div>
                 <h2>Usercard List</h2>
+                <Usercard />
             </div>
         )
     }
