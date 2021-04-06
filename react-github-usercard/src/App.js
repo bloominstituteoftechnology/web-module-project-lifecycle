@@ -29,8 +29,10 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('https://api.github.com/users/wzd200')
       .then(res => {
-        const gitData = res
-        console.log(gitData)
+        this.setState({
+          users: res
+        })
+        console.log(res)
       })
       .catch(err => {
         console.log(err)
@@ -44,7 +46,9 @@ class App extends React.Component {
        <h1>
          Welcome to the Github Usercard Application
         </h1>
-        <UsercardList />
+        <UsercardList 
+          users={this.state.users} 
+        />
       </div>
     )
   }

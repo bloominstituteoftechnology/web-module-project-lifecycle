@@ -7,10 +7,12 @@ class UsercardList extends React.Component {
     }
 
     render() {
+        const { users } = this.props;
+        console.log(users)
         return(
             <div>
                 <h2>Usercard List</h2>
-                <Usercard />
+                <Usercard users={users}/>
             </div>
         )
     }

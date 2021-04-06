@@ -6,9 +6,12 @@ class Usercard extends React.Component {
     }
 
     render() {
+        const { users } = this.props;
+        console.log(users)
         return (
             <div>
                 <h3>Example Usercard!</h3>
+                <h3>{users.name}</h3>
             </div>
         )
     }
