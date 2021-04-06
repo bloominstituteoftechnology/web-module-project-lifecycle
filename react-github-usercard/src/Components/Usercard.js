@@ -11,7 +11,7 @@ class Usercard extends React.Component {
         return (
             <div>
                 <h3>Example Usercard!</h3>
-                <h3>{users.name}</h3>
+                <h3>{users.data.login}</h3>
             </div>
         )
     }
