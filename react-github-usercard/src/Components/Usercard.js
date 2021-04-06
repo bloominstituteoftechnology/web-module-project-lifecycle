@@ -7,13 +7,14 @@ class Usercard extends React.Component {
 
     render() {
         const { users } = this.props;
-        
+        console.log(users)
         return (
-            <div>
+            <div className='usercard'>
                 <div>
-                    <img src={`${users.data.avatar_url}`}/>
+                    <img alt='Github user avatar' src={`${users.data.avatar_url}`}/>
                 </div>
                 <div>
+                    {users.name}
                     <h3>{users.data.login}</h3>
                     <p>{users.data.url}</p>
                     <p>{`Followers: ${users.data.followers}`}</p>
