@@ -4,14 +4,7 @@ import './App.css';
 
 // Getting Feet Wet
 
-// axios.get('https://api.github.com/users/wzd200')
-//   .then(res => {
-//     const gitData = res
-//     console.log(gitData)
-//   })
-//   .catch(err => {
-//     console.log(err)
-//   })
+
 
 // function App() {
 //   return (
@@ -30,6 +23,18 @@ class App extends React.Component {
       users: []
     }
   }
+
+  componentDidMount() {
+    axios.get('https://api.github.com/users/wzd200')
+      .then(res => {
+        const gitData = res
+        console.log(gitData)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+    }
 
   render() {
     return (
