@@ -7,3 +7,8 @@
   text-align: center;
 }
 
+.userCard {
+  width: 300px;
+  border: solid red inset 4px;
+  background-color: #f4f4f4;
+}

@@ -11,6 +11,7 @@ axios
 .then(response => {
   const gitHubInfo = document.querySelector({})
   gitHubInfo.appendChild(userCardList(response.data))
+  console.log("Your Result: ", response);
 })
 
 .catch(error => {
@@ -23,8 +24,9 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      login: data
-      
+      name: '',
+      followers: '',
+      following: '',
     };
   }
 
