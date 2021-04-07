@@ -9,7 +9,10 @@ class App extends React.Component {
     super();
     this.state = {
       users: [ {
-        name: 'Will'
+        name: [],
+        avatar_url: [],
+        followers: [],
+        following: [],
       }]
     }
   }
@@ -19,9 +22,9 @@ class App extends React.Component {
     axios.get('https://api.github.com/users/wzd200')
       .then(res => {
         this.setState({
-          users: res
+          users: res.data
         })
-        console.log(res)
+        console.log(res.data)
       })
       .catch(err => {
         console.log(err)

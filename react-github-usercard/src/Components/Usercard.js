@@ -12,14 +12,14 @@ class Usercard extends React.Component {
             <div className='usercard'>
                 {/* <h2>I am a usercard dummy</h2> */}
                 <div>
-                    <img alt='Github user avatar' src={`${users.data.avatar_url}`}/>
+                    <img alt='Github user avatar' src={`${users.avatar_url}`}/>
                 </div>
                 <div>
                     {users.name}
-                    <h3>{users.data.login}</h3>
-                    <p>{users.data.url}</p>
-                    <p>{`Followers: ${users.data.followers}`}</p>
-                    <p>{`Following: ${users.data.following}`}</p>
+                    <h3>{users.login}</h3>
+                    <p>{users.url}</p>
+                    <p>{`Followers: ${users.followers}`}</p>
+                    <p>{`Following: ${users.following}`}</p>
                 </div>
                 
             </div>
