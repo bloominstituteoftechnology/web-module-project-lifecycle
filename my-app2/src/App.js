@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
 
-  componentDidMount() {
+  componentDidMount(){
     console.log("Component Mounted Successfully");
     setTimeout(() =>{
       this.setState( {
@@ -65,7 +65,7 @@ class App extends React.Component {
   render() {
     return (
       <div className = "App">
-          <UserCardList userCard={this.state.userCard} />
+          <UserContainer userCard={this.state.userCard} />
       </div>
     )
   };
