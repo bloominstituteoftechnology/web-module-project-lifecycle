@@ -9,7 +9,7 @@ const FollowerCard = props => {
     useEffect(() => {
         axios.get(`https://api.github.com/users/${user}`)
         .then(res => {
-          setUserInfo(res.data)
+          setUserData(res.data)
         })
         .catch(err => {
             console.log(err);

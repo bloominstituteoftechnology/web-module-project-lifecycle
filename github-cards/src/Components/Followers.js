@@ -16,3 +16,5 @@ const Followers = props => {
         </div>
     )
 }
+
+export default Followers

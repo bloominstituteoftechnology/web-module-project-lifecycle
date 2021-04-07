@@ -1,10 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import axios from 'axios';
+import UserCard from './Components/UserCard';
+import Followers from './Components/Followers';
 
 class App extends React.Component {
 
-  const = {
+  state = {
     user: "rickyklusmeier",
     userData: [],
     followersArr: []
@@ -35,9 +38,12 @@ class App extends React.Component {
   }
 
   render() {
+    if(this.state.userData.length === 0) {
+      return <h3> Please wait</h3>
+    }
   return (
     <div className="App">
-      <UserCard userData={this.state.userData}/>
+      {this.state.userData.length === 0 ? <h3> Please wait while we load your cards </h3> : <UserCard userData={this.state.userData}/>}
       <Followers followersArr={this.state.followersArr}/>
     </div>
   );
