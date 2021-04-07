@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.userCard {
+.userContainer {
   width: 300px;
   border: solid red inset 4px;
   background-color: #f4f4f4;
