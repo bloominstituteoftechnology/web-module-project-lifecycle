@@ -2,7 +2,7 @@ import React from "react";
 
 class Followers extends React.Component {
   render() {
-    console.log('props drilling sanity check from Followers', this.props)
+   // console.log('props drilling sanity check from Followers', this.props)
     const { followers } = this.props;
    
     return (

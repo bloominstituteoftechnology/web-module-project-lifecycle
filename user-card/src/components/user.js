@@ -1,11 +1,12 @@
 import React from "react";
 import axios from "axios";
 import Followers from "./followers";
+import GitHubCalendar from 'github-calendar'
 
 class User extends React.Component {
   
   constructor(props) {
-    console.log('incoming props sanity check from User component', props)
+    //console.log('incoming props sanity check from User component', props)
     super(props);
 
     this.state = {
@@ -15,7 +16,7 @@ class User extends React.Component {
 
   // this function checks to see if props.user is the same as previous state. if not, update
   componentDidUpdate(prevProps, prevState) {
-    console.log('this.props.user compared to ', this.props.user, 'prevProps.user', prevProps.user)
+    //console.log('this.props.user compared to ', this.props.user, 'prevProps.user', prevProps.user)
     if (this.props.user !== prevProps.user) {
       //ALWAYS DO ABOVE TO STOP INFINITE LOOPS
       axios
@@ -25,7 +26,7 @@ class User extends React.Component {
             ...prevState,
             followers: res.data,
           }));
-          console.log("Resolved Data from componentDidUpdate in User.js", res.data)
+         // console.log("Resolved Data from componentDidUpdate in User.js", res.data)
         })
         .catch((error) => console.log(error));
     }
@@ -33,6 +34,10 @@ class User extends React.Component {
 
   render() { 
     const { user } = this.props;
+    // GitHubCalendar(".calendar", "artofmayhem");
+    // or enable responsive functionality:
+  //  GitHubCalendar(".calendar", "artofmayhem", { responsive: true });
+
     return (
       <div className="d-flex flex-row justify-content-between">
         <div className="card">
