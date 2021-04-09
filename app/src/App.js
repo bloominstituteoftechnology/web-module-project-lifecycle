@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import axios from "axios";
-import UserCard from "./components/UserCard"
+import UserCard from "./components/UserCard";
 
 class App extends React.Component {
   constructor() {
@@ -20,20 +20,24 @@ class App extends React.Component {
       .catch((err) => err);
   }
 
-  fetchUser = () => {
+  fetchUser = () => {};
 
-  }
+  handleChanges = (e) => {
+    this.setState({
+      ...this.state,
+      userName: e.target.value,
+    });
+  };
 
-  componentDidUpdate() {
-
-  }
+  componentDidUpdate() {}
 
   render() {
     return (
       <div>
         <p>Hello</p>
-        <input type="text" /><button onClick={this.fetchUser}>Click Me</button>
-        {this.state.user.map(user => {
+        <input type="text" />
+        <button onClick={this.fetchUser}>Click Me</button>
+        {this.state.user.map((user) => {
           return <img src={user} key={user} />;
         })}
         <UserCard />
