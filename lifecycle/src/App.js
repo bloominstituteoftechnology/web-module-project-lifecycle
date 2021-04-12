@@ -8,7 +8,7 @@ class App extends React.Component {
     super();
       this.state = {
         newUser: '',
-        user: ''
+        user: {}
            }
      }
 
@@ -45,7 +45,7 @@ class App extends React.Component {
           />
           <button onClick={this.getUser}>Get UserCards</button>
 
-         
+         <Card user={this.state.user} />
 
           </div>
           
