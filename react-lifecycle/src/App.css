@@ -1,0 +1,41 @@
+.card {
+  border-style: solid;
+  border-color: red;
+  margin: 5% 25% 5% 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+img {
+  width: 15%;
+  height: 15%;
+  margin: 5% 10% 0% 10%;
+  border-style: solid;
+  border-color: black;
+  border-radius: 50%;
+}
+
+.topbox {
+  width: 80%;
+  border-style: solid;
+  border-color: red;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+h2 {
+  font-size: 125%;
+}
+
+
+h3 {
+  font-size: 90%;
+}
+
+h4 {
+  font-size: 75%;
+}
