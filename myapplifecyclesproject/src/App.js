@@ -22,7 +22,7 @@ class App extends React.Component {
         axios.get('https://api.github.com/users/zach-morris-txt/followers')
             .then((response) => {
               this.setState({
-                following: response.data ,            
+                following: response.data ,
               });
             })
             .catch((error) => console.log(error));
@@ -32,7 +32,7 @@ class App extends React.Component {
         console.log('rendering');
         return (
             <div className='App'>
-                <Card users={this.state.users} followers={this.state.followers} />                
+                  <Card users={this.state.users} following={this.state.following} /> 
             </div>
         );
     };
