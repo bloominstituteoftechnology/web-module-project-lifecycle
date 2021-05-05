@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import "./App.css";
+import { Button, Card } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
   constructor() {
@@ -36,14 +38,25 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>GitHub User Card</h1>
-        <img src={this.state.user.avatar_url} width="200" />
-        <h2>Name</h2>
-        <h2>{this.state.user.name}</h2>
-        <p>Followers</p>
-        {this.state.followers.map((item) => {
-          return <p key={this.state.user.id}>{item.login}</p>;
-        })}
+        <header className="App-header">
+          <Card className="mb-3" style={{ color: "#000", padding: "4rem" }}>
+            <div className="img-container">
+              <img src={this.state.user.avatar_url} width="100" />
+            </div>
+            <Card.Body>
+              <Card.Title>GitHub User Card</Card.Title>
+              <h3>Name</h3>
+              <h3>{this.state.user.name}</h3>
+              <p>Followers</p>
+              {this.state.followers.map((item) => {
+                return (
+                  <Card.Text key={this.state.user.id}>{item.login}</Card.Text>
+                );
+              })}
+              <Button variant="secondary">Test</Button>
+            </Card.Body>
+          </Card>
+        </header>
       </div>
     );
   }
