@@ -44,3 +44,9 @@ a:active {
   width: calc(500px - 20px);
   padding: 10px;
 }
+
+.graph a img {
+  margin-top: 2px;
+  width: calc(500px - 2px);
+  border: 1px solid lightgray;
+}

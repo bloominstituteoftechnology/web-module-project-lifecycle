@@ -12,7 +12,9 @@ const UserCard = (props) => {
     <div>
       <div className='container-card'>
         <section className='image'>
-          <a href={avatar_url}><img src={avatar_url} /></a>
+          <a href={avatar_url}>
+            <img src={avatar_url} />
+          </a>
         </section>
         <section className='card'>
           <p>Username: <a href={html_url}>{login}</a></p>
@@ -23,6 +25,11 @@ const UserCard = (props) => {
           <p>Following: {following}</p>
           <p>Gists: {public_gists}</p>
           <p>Repos: {public_repos}</p>
+        </section>
+        <section className='graph'>
+          <a href={`https://grass-graph.moshimo.works/images/${login}.png`}>
+            <img src={`https://grass-graph.moshimo.works/images/${login}.png`} />
+          </a>
         </section>
       </div>
     </div>
