@@ -1,4 +1,5 @@
 import React from "react";
+import './styles.scss';
 
 class App extends React.Component {
     constructor() {
