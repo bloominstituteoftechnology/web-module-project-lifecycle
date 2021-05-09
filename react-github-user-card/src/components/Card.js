@@ -11,12 +11,13 @@ class Card extends React.Component {
 
 		return (
 			<div className="card">
-				{username}
+				<img className="avatar" src={userData.avatar_url} /> <br />
 				username: {username} <br />
-				name: {username} <br />
-				location: {username} <br />
-				followers: {username} <br />
-				following: {username}
+				name: {userData.name} <br />
+				website: {userData.blog} <br />
+				location: {userData.location} <br />
+				followers: {userData.followers} <br />
+				following: {userData.following}
 			</div>
 		);
 	}

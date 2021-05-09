@@ -5,18 +5,40 @@ import Card from "./components/Card";
 class App extends React.Component {
 	state = { username: "", userData: {} };
 
+	// on first render :
 	componentDidMount() {
 		axios.get("https://api.github.com/users/hanselviva").then((res) => {
 			this.setState({
 				userData: res.data,
 			});
-			console.log(res.data);
 		});
 	}
 
+	//Dont need this:
+	// componentDidUpdate(prevProps, prevState) {
+	// 	if (prevState.username !== this.state.username) {
+	// 		axios
+	// 			.get(`https://api.github.com/users/${this.state.username}`)
+	// 			.then((res) => {
+	// 				this.setState({ userData: res.data });
+	// 			});
+	// 	}
+	// }
+
+	handleOnChange = (e) => {
+		this.setState({ username: e.target.value });
+	};
+
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log("submitted");
+		axios
+			.get(`https://api.github.com/users/${this.state.username}`)
+			.then((res) => {
+				this.setState({
+					userData: res.data,
+				});
+				console.log(res.data);
+			});
 	};
 
 	render() {
@@ -25,7 +47,11 @@ class App extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Your Github Username <br />
-						<input type="text" placeholder="Enter Your Username" />
+						<input
+							type="text"
+							placeholder="Enter Your Username"
+							onChange={this.handleOnChange}
+						/>
 					</label>
 					<button>Submit</button>
 				</form>
