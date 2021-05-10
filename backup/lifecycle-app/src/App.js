@@ -4,7 +4,7 @@ import Card from './components/Card'
 import Fcard from './components/Fcard'
 import axios from 'axios';
 
-// import './styles.scss';
+import './index.css';
 
 
 export default class App extends React.Component {
