@@ -3,11 +3,13 @@ import axios from 'axios';
 import './App.css';
 import Followers from './components/Followers/Followers';
 import SelectedUser from './components/SelectedUser/SelectedUser';
+import Search from './components/Search/Search';
 
 class App extends Component {
   state = {
     user: null,
     followers: null,
+    searchError: false,
   };
 
   componentDidMount() {
@@ -15,17 +17,20 @@ class App extends Component {
     this.getFollowers('cal1x');
   }
 
-  getUser(username) {
+  getUser = (username) => {
     axios
       .get(`https://api.github.com/users/${username}`)
       .then((response) => {
         this.setState({ user: response.data });
-        console.log(this.state.user);
+        this.setState({ searchError: false });
       })
-      .catch((error) => console.log(error));
-  }
+      .catch((error) => {
+        console.log(error);
+        this.setState({ searchError: true });
+      });
+  };
 
-  getFollowers(username) {
+  getFollowers = (username) => {
     axios
       .get(`https://api.github.com/users/${username}/followers`)
       .then((response) => {
@@ -33,12 +38,26 @@ class App extends Component {
         console.log(this.state.followers);
       })
       .catch((error) => console.log(error));
-  }
+  };
+
+  submitSearch = (searchTerm) => {
+    this.getUser(searchTerm);
+    this.getFollowers(searchTerm);
+  };
 
   render() {
     return (
       <div className='App'>
-        {this.state.user && <SelectedUser user={this.state.user} />}
+        <Search
+          submitSearch={this.submitSearch}
+          searchError={this.state.searchError}
+        />
+        {this.state.user && (
+          <SelectedUser
+            user={this.state.user}
+            followers={this.state.followers}
+          />
+        )}
         {this.state.followers && <Followers followers={this.state.followers} />}
       </div>
     );

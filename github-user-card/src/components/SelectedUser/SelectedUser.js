@@ -7,6 +7,9 @@ class SelectedUser extends Component {
     return (
       <div>
         <User user={this.props.user} />
+        {this.props.followers && this.props.followers.length > 0 && (
+          <div className='vertical-line'></div>
+        )}
       </div>
     );
   }

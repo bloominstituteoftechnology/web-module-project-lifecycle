@@ -8,6 +8,7 @@ class Repositories extends Component {
         {this.props.repositories.map((repository, index) => {
           return <Repository repository={repository} key={index} />;
         })}
+        {this.props.repositories.length === 0 && <p>No repositories to show</p>}
       </div>
     );
   }
