@@ -5,7 +5,7 @@ class Repository extends Component {
     return (
       <div>
         <h4>
-          <a href={this.props.repository.html_url} target='_BLANK'>
+          <a href={this.props.repository.html_url}>
             {this.props.repository.name}
           </a>
         </h4>
