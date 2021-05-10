@@ -3,12 +3,12 @@ html,
 body {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  padding: 10px;
 }
 
 body {
-  background-color: #2d2d37;
+  background-color: #8c8c8c;
 }
 
 h1,
@@ -24,47 +24,27 @@ span {
   font-family: 'Roboto', sans-serif;
 }
 
-.App {
-  font-family: sans-serif;
-  text-align: center;
-  padding: 0 36px;
-  max-width: 665px;
-  margin: 0 auto;
-}
-
-.header {
+/* .image-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-h1 {
-  text-align: left;
-}
 
-.todo-list {
+
+.image-container {
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-between;
-  width: 100%;
-  margin: 0 auto;
-}
-.item {
-  background-color: #e64944;
-  width: 45%;
-  text-align: left;
-  margin: 4px 0;
-  padding-left: 8px;
-  cursor: pointer;
-}
+  align-items: center;
+} */
 
-.itemcompleted {
-  background-color: #d17d7c;
-  text-decoration: line-through;
-}
+/* h1 {
+  text-align: left;
+} */
+
 form {
   width: 65%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 form > input {
   background-color: #2d2d37;
@@ -79,9 +59,9 @@ form > input {
 }
 
 button {
-  background-color: #e64944;
-  border: 1px solid #ffffff;
-  color: white;
+  background-color: #d5d5d5;
+  border: 1px solid #020202;
+  color: rgb(0, 0, 0);
   font-size: 16px;
   padding: 6px 14px;
 }
