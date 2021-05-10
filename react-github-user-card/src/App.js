@@ -25,7 +25,7 @@ class App extends React.Component {
 			);
 	}
 
-	// dom rerenders everytime user types. see shouldComponentUpdate
+	// dom rerenders everytime user types.
 	componentDidUpdate(prevProps, prevState) {
 		console.log("component did update");
 	}
