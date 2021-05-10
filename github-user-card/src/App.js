@@ -7,17 +7,25 @@ import Search from './components/Search/Search';
 
 class App extends Component {
   state = {
-    user: null,
+    username: 'cal1x',
     followers: null,
     searchError: false,
   };
 
   componentDidMount() {
-    this.getUser('cal1x');
-    this.getFollowers('cal1x');
+    this.getUser(this.state.username);
+    this.getFollowers(this.state.username);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.username !== this.state.username) {
+      this.getUser(this.state.username);
+      this.getFollowers(this.state.username);
+    }
   }
 
   getUser = (username) => {
+    console.log('getting user');
     axios
       .get(`https://api.github.com/users/${username}`)
       .then((response) => {
@@ -41,8 +49,7 @@ class App extends Component {
   };
 
   submitSearch = (searchTerm) => {
-    this.getUser(searchTerm);
-    this.getFollowers(searchTerm);
+    this.setState({ username: searchTerm });
   };
 
   render() {
