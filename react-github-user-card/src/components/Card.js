@@ -7,17 +7,27 @@ class Card extends React.Component {
 	// }
 
 	render() {
-		const { username, userData } = this.props;
+		const { userData, followers } = this.props;
 
 		return (
 			<div className="card">
-				<img className="avatar" src={userData.avatar_url} /> <br />
-				username: {username} <br />
-				name: {userData.name} <br />
-				website: {userData.blog} <br />
-				location: {userData.location} <br />
-				followers: {userData.followers} <br />
-				following: {userData.following}
+				<div className="user-data">
+					<img alt="avatar" className="avatar" src={userData.avatar_url} />{" "}
+					<br />
+					name: {userData.name} <br />
+					website: {userData.blog} <br />
+					location: {userData.location} <br />
+					followers: {userData.followers} <br />
+					following: {userData.following}
+				</div>
+				<div className="followers">followers:</div>
+				{followers.map((follower) => {
+					return (
+						<div key={follower.id}>
+							<a href={follower.html_url}>{follower.login}</a>
+						</div>
+					);
+				})}
 			</div>
 		);
 	}

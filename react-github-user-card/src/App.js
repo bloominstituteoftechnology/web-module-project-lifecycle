@@ -3,48 +3,59 @@ import axios from "axios";
 import Card from "./components/Card";
 
 class App extends React.Component {
-	state = { username: "", userData: {} };
+	constructor(props) {
+		super(props);
+		this.state = { username: "", userData: {}, followers: [] };
+	}
 
 	// on first render :
 	componentDidMount() {
-		axios.get("https://api.github.com/users/hanselviva").then((res) => {
-			this.setState({
-				userData: res.data,
-			});
-		});
+		axios
+			.all([
+				axios.get("https://api.github.com/users/hanselviva"),
+				axios.get("https://api.github.com/users/hanselviva/followers"),
+			])
+			.then(
+				axios.spread((res1, res2) => {
+					this.setState({
+						userData: res1.data,
+						followers: res2.data,
+					});
+				}),
+			);
 	}
 
-	//Dont need this:
-	// componentDidUpdate(prevProps, prevState) {
-	// 	if (prevState.username !== this.state.username) {
-	// 		axios
-	// 			.get(`https://api.github.com/users/${this.state.username}`)
-	// 			.then((res) => {
-	// 				this.setState({ userData: res.data });
-	// 			});
-	// 	}
-	// }
+	// dom rerenders everytime user types. see shouldComponentUpdate
+	componentDidUpdate(prevProps, prevState) {
+		console.log("component did update");
+	}
 
 	handleOnChange = (e) => {
 		this.setState({ username: e.target.value });
 	};
 
-	handleSubmit = (e) => {
+	fetchUserData = (e) => {
 		e.preventDefault();
 		axios
-			.get(`https://api.github.com/users/${this.state.username}`)
-			.then((res) => {
-				this.setState({
-					userData: res.data,
-				});
-				console.log(res.data);
-			});
+			.all([
+				axios.get(`https://api.github.com/users/${this.username}`),
+				axios.get(`https://api.github.com/users/${this.username}/followers`),
+			])
+			.then(
+				axios.spread((res1, res2) => {
+					this.setState({
+						userData: res1.data,
+						followers: res2.data,
+					});
+				}),
+			);
 	};
 
 	render() {
+		console.log("Render");
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.fetchUserData}>
 					<label>
 						Your Github Username <br />
 						<input
@@ -56,7 +67,11 @@ class App extends React.Component {
 					<button>Submit</button>
 				</form>
 
-				<Card username={this.state.username} userData={this.state.userData} />
+				<Card
+					username={this.state.username}
+					userData={this.state.userData}
+					followers={this.state.followers}
+				/>
 			</div>
 		);
 	}
