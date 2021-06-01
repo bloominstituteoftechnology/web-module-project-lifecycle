@@ -2,12 +2,14 @@ import axios from 'axios';
 import React from 'react';
 import './App.css';
 import UserCard from './components/UserCard';
+import UserFollowers from './components/UserFollowers';
 
 
 class App extends React.Component {
   // Create state
   state = {
-     users: []
+     users: [],
+     followers: []
   }
 
   // Axios requests 
@@ -21,10 +23,24 @@ class App extends React.Component {
         this.setState({
           users: res.data
         })
+        axios.get("https://api.github.com/users/Vehmeyer/following")
+          .then((res) => {
+            console.log(res.data)
+            this.setState({
+              followers: res.data
+            })
+          })        
       })
       .catch(err => {
         console.log(err)
       })
+        // axios.get("https://api.github.com/users/Vehmeyer/followers")
+        //   .then((res) => {
+        //     console.log(res.data)
+        //   })
+        //   .catch(err => {
+        //     console.log(err)
+        //   })
   }
 
   // Create handler functions
@@ -47,8 +63,8 @@ class App extends React.Component {
   // }
 
   render() {
-      console.log(this.state.users);
-      console.log(this.state.users.name);
+      console.log("users:", this.state.users);
+      console.log("followers:", this.state.followers);
 
       return (
       <div className="App">
@@ -57,7 +73,9 @@ class App extends React.Component {
         </header>
         <div className="userContainer">
           <UserCard users={this.state.users}/>
-          {/* <h3>{this.state.users.name}</h3> */}
+        </div>
+        <div className="userContainer">
+          <UserFollowers followers={this.state.followers}/>
         </div>
       </div>
     );

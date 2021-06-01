@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background: rgb(148,190,126);
+  background: linear-gradient(0deg, rgba(148,190,126,1) 0%, rgba(76,141,142,1) 92%);
 }
 
 .App-logo {
@@ -21,7 +23,54 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(148,190,126);;
+}
+
+.userContainer {
+  padding: 2%;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.cards {
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px -2px #000;
+  background-color: #FFF;
+  margin-bottom: 30px;
+}
+
+.card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 3px;
+  margin-right: 20px;
+}
+
+.card .name {
+  font-size: 3.4rem;
+}
+
+.card p {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+}
+
+.card .username {
+  font-size: 1.8rem;
+  font-style: italic;
+  margin: 3px 0 10px;
 }
 
 .App-link {
