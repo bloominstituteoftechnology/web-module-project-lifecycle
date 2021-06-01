@@ -38,7 +38,8 @@
   flex-direction: column;
   border-radius: 5px;
   box-shadow: 0 1px 6px -2px #000;
-  background-color: #FFF;
+  background-color: #282c34;
+  color: rgb(148,190,126);
   margin-bottom: 30px;
 }
 
