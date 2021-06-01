@@ -16,6 +16,7 @@ class Follower extends React.Component {
                     <div className="username">
                         <p>Username: {follower.login}</p>
                     </div>
+                    {/* data below doesn't appear to be accessible through GH API */}
                     {/* <p>{follower.location}</p>
                     <p>Followers: {follower.followers}</p>
                     <p>Following: {follower.following}</p>

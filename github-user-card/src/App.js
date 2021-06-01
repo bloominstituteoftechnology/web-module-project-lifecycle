@@ -12,7 +12,7 @@ class App extends React.Component {
      followers: []
   }
 
-  // Axios requests 
+  // Axios requests - API end points:
   // https://api.github.com/users/Vehmeyer
   // https://api.github.com/users/Vehmeyer/followers
   
@@ -34,17 +34,9 @@ class App extends React.Component {
       .catch(err => {
         console.log(err)
       })
-        // axios.get("https://api.github.com/users/Vehmeyer/followers")
-        //   .then((res) => {
-        //     console.log(res.data)
-        //   })
-        //   .catch(err => {
-        //     console.log(err)
-        //   })
   }
 
-  // Create handler functions
-
+  // Create handler functions - not needed with current setup, but could add a click handler for clicking on a follower or following button
   // handleChange = e => {
   //   this.setState({
   //     users: e.target.value

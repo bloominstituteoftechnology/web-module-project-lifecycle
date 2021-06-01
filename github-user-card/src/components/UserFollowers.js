@@ -3,6 +3,7 @@ import Follower from './Follower';
 // import axios from 'axios';
 
 class UserFollowers extends React.Component {
+    // research or ask about strategies for making multiple axios requests. currently have my 2nd axios get request nested in the 1st request in App.js
     // componentDidMount() {
     //     axios.get("https://api.github.com/users/Vehmeyer/following")
     //       .then((res) => {

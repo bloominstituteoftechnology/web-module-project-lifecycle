@@ -9,12 +9,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 20vh;
@@ -37,14 +31,11 @@
   color: black;
 }
 
-.cards {
-  width: 100%;
-}
-
 .card {
   width: 100%;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   border-radius: 5px;
   box-shadow: 0 1px 6px -2px #000;
   background-color: #FFF;
