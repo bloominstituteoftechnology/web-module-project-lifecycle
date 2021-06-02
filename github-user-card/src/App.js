@@ -8,7 +8,7 @@ import UserFollowers from './components/UserFollowers';
 class App extends React.Component {
   // Create state
   state = {
-     users: [],
+     users: {},
      followers: []
   }
 
@@ -19,13 +19,13 @@ class App extends React.Component {
   componentDidMount() {
     axios.get("https://api.github.com/users/vehmeyer")
       .then((res) => {
-        console.log(res.data);
+        console.log("res.data:", res.data);
         this.setState({
           users: res.data
         })
         axios.get("https://api.github.com/users/Vehmeyer/following")
           .then((res) => {
-            console.log(res.data)
+            console.log("following res.data:", res.data)
             this.setState({
               followers: res.data
             })
