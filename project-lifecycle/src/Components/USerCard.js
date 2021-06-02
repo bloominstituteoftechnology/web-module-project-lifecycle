@@ -24,4 +24,4 @@ const UserCard = props => {
     )
 }
 
-export default USerCard
+export default UserCard

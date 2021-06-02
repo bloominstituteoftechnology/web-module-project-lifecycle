@@ -5,7 +5,7 @@ import FollowerCard from './FollowerCard'
 
 const Followers = props => {
     const {followersArray} = props
-
+    console.log(followersArray)
     return (
         <div>
             <h2>Followers:</h2>

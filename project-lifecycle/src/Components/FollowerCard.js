@@ -12,7 +12,7 @@ const FollowerCard = props => {
     useEffect(() => {
         axios.get(`https://api.github.com/users/${user}`)
         .then(res => {
-        //   console.log(res.data)
+            console.log('this is from FollowerCard', res.data)
             setUserInfo(res.data)
         })
         .catch(err => {
