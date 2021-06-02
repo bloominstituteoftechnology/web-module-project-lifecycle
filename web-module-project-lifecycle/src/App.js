@@ -9,39 +9,73 @@ class App extends React.Component {
     super();
     this.state = {
       data: [],
-      followers: []
+      followers: [],
+      user: "",
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("https://api.github.com/users/adampatt")
+      .then((response) => {
+        this.setState({ data: response.data });
+        console.log("axios response", this.state.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .get("https://api.github.com/users/adampatt/followers")
+      .then((response) => {
+        this.setState({ followers: response.data });
+        console.log("followers details", this.state.followers);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.user !== this.state.user) {
+        axios
+          .get(`https://api.github.com/users/${this.state.user}/followers`)
+          .then((res) => {
+            this.setState({ followers: res.data });
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      }
     }
-  }
 
-componentDidMount() {
-  axios
-        .get("https://api.github.com/users/adampatt")
-        .then((response) => {
-          this.setState({ data: response.data })
-          console.log("axios response", this.state.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-  
-   axios
-        .get("https://api.github.com/users/adampatt/followers")
-        .then((response) => {
-          this.setState({ followers: response.data })
-          console.log("followers details", this.state.followers)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-  }
-  
+  handleChange = (e) => {
+    this.setState({ user: e.target.value });
+  };
 
-  
-  render () {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .get(`https://api.github.com/users/${this.state.user}`)
+      .then((res) => {
+        this.setState({
+          data: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  render() {
     return (
       <div className="App">
         <h1>Hello</h1>
-       <CardList data={this.state.data} followers={this.state.followers}/>
+        <form onSubmit={this.handleSubmit}>
+          <input value={this.state.user} onChange={this.handleChange} />
+          <button>Search</button>
+        </form>
+        <CardList data={this.state.data} followers={this.state.followers} />
       </div>
     );
   }
