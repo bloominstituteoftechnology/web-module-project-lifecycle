@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import User from './components/User'
 
 class App extends React.Component {
   constructor(){
@@ -30,6 +31,7 @@ class App extends React.Component {
         <header className="App-header">
           <h1>{this.state.title}</h1>
         </header>
+        <User user ={this.state.user} />
       </div>
     );
 
