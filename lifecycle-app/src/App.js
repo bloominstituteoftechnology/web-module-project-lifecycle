@@ -1,19 +1,21 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import User from './components/User'
+import User from './components/User';
+import Follower from './components/Followers';
 
 class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      title: 'GitHub',
+      title: 'GitHub Friends',
       user: {},
       followers: []
     }
   }
 
   componentDidMount(){
+    //axios call for user info
     axios.get('https://api.github.com/users/MinaMonsi')
     .then(res => {
       console.log(res);
@@ -23,15 +25,37 @@ class App extends React.Component {
       })//happy path
     })
     .catch(err => console.log(err));//sad path
+
+    //axios call for followers
+  axios.get('https://api.github.com/users/MinaMonsi/followers')
+  .then( res => {
+    console.log(res);
+    this.setState({
+      ...this.state, 
+      followers: res.data
+    })
+  })
+  .catch(err => console.log(err))
+
   }
 
+  
   render(){
     return (
       <div className="App">
         <header className="App-header">
           <h1>{this.state.title}</h1>
         </header>
+        <div>
         <User user ={this.state.user} />
+        </div>
+
+        <div>
+          {this.state.followers.map(follower => {
+            return <Follower follower={follower}/>
+          })}
+        </div>
+        
       </div>
     );
 

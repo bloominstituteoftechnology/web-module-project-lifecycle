@@ -1,20 +1,22 @@
 import React from 'react';
+import Card from'react-bootstrap/Card';
 import '../App.css'
 
 const User = props => {
     return(
-        <div ClassNamer='user'> 
-            <img height='150' src={props.user.avatar_url} alt='' />
-
-        <div className='bio'>
-            <h3>{props.user.name}</h3>
-            <p>{props.user.bio}</p>
-            <a href={props.user.html_url}>{props.user.html}</a>
-            <p>Followers: {props.user.followers}</p>
-            <p>Following: {props.user.following}</p>
-            <p>Company: {props.user.company}</p>
-            <p>Location: {props.user.location}</p> 
-        </div>
+        <div className='user'> 
+        <Card style={{ width: '18rem'}}>
+            <Card.Img variant='top' height='200' src={props.user.avatar_url} />
+            <Card.Body>
+                <Card.Title>{props.user.name}</Card.Title>
+                <Card.Text>{props.user.bio}</Card.Text>
+                <Card.Text>Company: {props.user.company}</Card.Text>
+                <Card.Text>Location: {props.user.location}
+                </Card.Text>
+                <Card.Link href={props.user.html_url}>{props.user.html_url}</Card.Link>
+            </Card.Body>
+         
+        </Card>
         </div>
     )
 }
