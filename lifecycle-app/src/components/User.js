@@ -5,7 +5,7 @@ import '../App.css'
 const User = props => {
     return(
         <div className='user'> 
-        <Card style={{ width: '18rem'}}>
+        <Card>
             <Card.Img variant='top' height='200' src={props.user.avatar_url} />
             <Card.Body>
                 <Card.Title>{props.user.name}</Card.Title>

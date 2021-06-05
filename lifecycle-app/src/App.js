@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      title: 'GitHub Friends',
+      title: 'GitHub Network',
       user: {},
       followers: []
     }
@@ -46,13 +46,12 @@ class App extends React.Component {
         <header className="App-header">
           <h1>{this.state.title}</h1>
         </header>
-        <div>
-        <User user ={this.state.user} />
-        </div>
 
-        <div>
-          {this.state.followers.map(follower => {
-            return <Follower follower={follower}/>
+        <div className='App-cards'>
+        <User user ={this.state.user} />
+      
+        {this.state.followers.map(follower => {
+          return <Follower key={follower.login + ' ' + follower.id } follower={follower}/>
           })}
         </div>
         
