@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 import axios from "axios";
 import CardList from "./Components/CardList";
-import SearchForm from "./Components/Search";
+
 
 class App extends React.Component {
   constructor() {
@@ -35,24 +35,10 @@ class App extends React.Component {
         console.log(error);
       });
   }
-  // This block updates the search in real time with each keystroke.
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.user !== this.state.user) {
-  //     axios
-  //       .get(`https://api.github.com/users/${this.state.user}/followers`)
-  //       .then((res) => {
-  //         this.setState({ followers: res.data });
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }
 
   handleChange = (e) => {
     this.setState({ user: e.target.value });
-    console.log(this.state.user);
   };
 
   handleSubmit = (e) => {
@@ -87,7 +73,6 @@ class App extends React.Component {
           <button>Search</button>
         </form>
         <CardList data={this.state.data} followers={this.state.followers} />
-        <SearchForm />
       </div>
     );
   }
