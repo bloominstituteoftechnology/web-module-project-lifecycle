@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import UserCard from './components/UserCard'
 
 
 class App extends React.Component {
   
   state = {
-    githubData: [],
-    image: ""
+    user: 'AnthonyMillerGit',
+    userInfo: [],
+    followersArray: []
   }
 
   componentDidMount() {
@@ -14,9 +16,7 @@ class App extends React.Component {
       .then(res => {
         console.log(res.data)
         this.setState({
-          ...this.state,
-          githubData: res.data,
-          image: res.data.avatar_url
+          userInfo:res.data
         })
       })
       .catch(err => {
@@ -29,9 +29,7 @@ class App extends React.Component {
     <div className="App">
       <h1>Github Card</h1>
       <div>
-        {this.state.githubData.map( i => {
-          return(<p>{i}</p>)
-        })}
+        <UserCard userInfo={this.state.userInfo}/>
       </div>
     </div>
   );
