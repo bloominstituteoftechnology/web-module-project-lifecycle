@@ -3,7 +3,6 @@ import React from 'react'
 class Card extends React.Component{
 
     render(){
-        console.log(this.props.avatar)
         return(
         <div>
             <h1>{this.props.login}</h1>
