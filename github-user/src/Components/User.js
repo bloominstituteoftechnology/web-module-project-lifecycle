@@ -9,7 +9,7 @@ export default class User extends React.Component {
         console.log(user)
         return(
             <>
-            <div className = 'imageContainer'>
+            <div className = 'userImageContainer'>
                 <img alt = 'User Avatar' src={user.avatar_url}/>
             </div>
             <div className = 'userInfoContainer'>

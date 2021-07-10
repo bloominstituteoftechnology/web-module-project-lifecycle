@@ -11,7 +11,7 @@ import './App.css';
     super()
     this.state = {
       user: {},
-      followers: []
+      followers: [],
     }
   }
   componentDidMount() {//user
@@ -19,7 +19,7 @@ import './App.css';
     .get('https://api.github.com/users/cynthia-coronado')
     .then(response => {
       this.setState({...this.state, user: response.data})
-      console.log(response)
+      console.log('User',response)
     })
     .catch(error => {
       console.log('User Error')
@@ -29,7 +29,7 @@ import './App.css';
     .get('https://api.github.com/users/cynthia-coronado/followers')
     .then(response => {
       this.setState({...this.state, followers: response.data})
-      console.log(response);
+      console.log('Followers',response);
     })
     .catch(error => {
       console.log('Follower Error')
@@ -41,6 +41,13 @@ render() {
     <div className = 'appContainer'>
     <h1>Github</h1>
     <User user={this.state.user}/>
+    {
+      this.state.followers &&
+      this.state.followers.map((follower) => {
+      return <FollowerCard key={follower.id} follower={follower} />
+    })
+    }
+    
     </div>
   )
  }
