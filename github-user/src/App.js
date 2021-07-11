@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import UserCard from './Components/UserCard'
 import User from './Components/User'
 import FollowerCard from './Components/FollowerCard'
 import './App.css';
