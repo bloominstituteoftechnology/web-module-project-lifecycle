@@ -71,4 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ## Rick Mansfield's PUll Req Link
-    - [Link for convenience]()
+    - [Link for convenience](https://github.com/LambdaSchool/web-module-project-lifecycle/pull/91)
+
