@@ -4,32 +4,35 @@ import UserForm from './components/UserForm';
 import User from './components/User';
 import './App.css';
 import styled from "styled-components";
+import Followers from './components/Followers';
 
 const fetchUserData = (name) => {
   return axios.get(`https://api.github.com/users/${name}`)
-  .then(res =>  res)
-  .catch(err => console.log(err))
+    .then(res => res)
+    .catch(err => console.log(err))
 }
 const fetchFollowersData = (name) => {
   return axios.get(`https://api.github.com/users/${name}/followers`)
-  .then(res => res.data)
-  .catch(err => console.log(err))
+    .then(res => res.data)
+    .catch(err => console.log(err))
 }
 class App extends React.Component {
-  state ={
+  state = {
     user: 'rickmansfield',
     formValues: '',
     followers: []
   }
-  componentDidMount(){
+  componentDidMount() {
     fetchUserData(this.state.user)
-    .then(res => {
-      console.log(res);
-      this.setState({
-        user: res.data
-
+      .then(res => {
+        // console.log(res);
+        this.setState({ user: res.data })
       })
-    })
+    fetchFollowersData(this.state.user)
+      .then(res => {
+        console.log(`FOLLOWERS`,res);
+        this.setState({ followers: [res.data] })
+      })
   }
   handleChange = event => {
     console.log('App event target:\n', event.target.value)
@@ -39,31 +42,36 @@ class App extends React.Component {
     })
   }
   handleSubmit = (e) => {
-    
     e.preventDefault()
-    
     fetchUserData(this.state.user)
-        .then(res => {
-            this.setState({
-                user: res.data
-            })
+      .then(res => {
+        this.setState({
+          user: res.data,
+          // followers: res.data
         })
-        .catch(err => console.log(err))
-}
+      })
+      .catch(err => console.log(err));
+  }
+
+
   render() {
     return (
       <Wrapper>
-      <div className="App" >
-        <header className="App-header">
-          <h1>GitHub User Card II</h1>
-        </header>
-      </div>
-      <div>
-        <UserForm onChange={this.handleChange} onSubmit={this.handleSubmit}/>
-      </div>
-      <div className="users-container">
-        <User user={this.state.user}/>
-      </div>
+        <div className="App" >
+          <header className="App-header">
+            <h1>GitHub User Card II</h1>
+          </header>
+        </div>
+        <div>
+          <UserForm onChange={this.handleChange} onSubmit={this.handleSubmit} />
+        </div>
+        <div className="users-container">
+          <User user={this.state.user} />
+        </div>
+        <div>
+          <h2>Followers</h2>
+          <Followers followers={this.state.followers} />
+        </div>
       </Wrapper>
     )
 
