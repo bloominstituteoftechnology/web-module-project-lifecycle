@@ -71,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ## Rick Mansfield's PUll Req Link
-    - [Link]()
+    - [Link for convenience]()
