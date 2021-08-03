@@ -1,8 +1,16 @@
+/**
+ * Tom Bielawski
+ * Lambda School WEB45 3.1.2 
+ * REACT GIT CARD PROJECT
+ * 8/3/2021
+ **/
+
+//Import statement
 import React from "react";
 import axios from "axios";
 
 
-// /
+//GitUser class definition
 class GitUser extends React.Component
 {
 
@@ -12,7 +20,7 @@ class GitUser extends React.Component
         gitterInfo: []
     }
 
-    
+    //Mount the component
     componentDidMount()
     {
         //Axios gets from the API
@@ -58,4 +66,5 @@ class GitUser extends React.Component
 
 }
 
+//Export statement
 export default GitUser;

@@ -1,3 +1,10 @@
+/**
+ * Tom Bielawski
+ * Lambda School WEB45 3.1.2 
+ * REACT GIT CARD PROJECT
+ * 8/3/2021
+ **/
+
 //Import statements
 import React from "react";
 import axios from "axios";
@@ -64,4 +71,5 @@ class GitFollowers extends React.Component
 
 }
 
+//Export statement
 export default GitFollowers;
