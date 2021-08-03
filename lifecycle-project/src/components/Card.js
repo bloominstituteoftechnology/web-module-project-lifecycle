@@ -28,11 +28,13 @@ class Card extends React.Component {
                 <h2>Name: {this.props.userCard.login}</h2>
                 <h5>Location: {this.props.userCard.location}</h5>
                 <p>Bio: {this.props.userCard.bio}</p>
-                <div className="followerDiv">
+                <div className="followersContainer">
                     <h3>Followers</h3>
-                    {this.state.followers.map(follower => (
-                        <Followers key={follower.id} followers={follower}/>
-                    ))}
+                    <div className="followersDiv">
+                        {this.state.followers.map(follower => (
+                            <Followers key={follower.id} followers={follower}/>
+                        ))}
+                    </div>
                 </div>
             </div>
         );

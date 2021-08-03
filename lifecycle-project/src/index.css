@@ -5,9 +5,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #4f4f4f;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+
+.userDiv {
+  border:1px solid #4f4f4f;
+  margin: 1% 7.5%;
+  background-color: mistyrose;
+}
+
+.followersContainer {
+  border:1px solid #4f4f4f;
+  margin: .05% .05%;
+}
+
+.followersDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+

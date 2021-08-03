@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return(
       <div className="App">
-        <h1>Me</h1>
+        <h1>Github User</h1>
         <div className="userDiv">
           <Card userCard={this.state.userCard}/>
         </div>
