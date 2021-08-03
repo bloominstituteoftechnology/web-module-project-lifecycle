@@ -13,7 +13,7 @@ const fetchUserData = (name) => {
 }
 const fetchFollowersData = (name) => {
   return axios.get(`https://api.github.com/users/${name}/followers`)
-    .then(res => res.data)
+    .then(resp => resp)
     .catch(err => console.log(err))
 }
 class App extends React.Component {
@@ -26,12 +26,14 @@ class App extends React.Component {
     fetchUserData(this.state.user)
       .then(res => {
         // console.log(res);
-        this.setState({ user: res.data })
-      })
-    fetchFollowersData(this.state.user)
-      .then(res => {
-        console.log(`FOLLOWERS`,res);
-        this.setState({ followers: [res.data] })
+        fetchFollowersData(this.state.user)
+          .then(resp => {
+            // console.log(`FOLLOWERS`,res);
+            this.setState({ 
+              followers: resp.data,
+              user: res.data,
+            formValues: this.state.formValues })
+          })
       })
   }
   handleChange = event => {
@@ -43,14 +45,18 @@ class App extends React.Component {
   }
   handleSubmit = (e) => {
     e.preventDefault()
-    fetchUserData(this.state.user)
-      .then(res => {
-        this.setState({
-          user: res.data,
-          // followers: res.data
+    fetchUserData(this.state.formValues)
+    .then(res => {
+      // console.log(res);
+      fetchFollowersData(this.state.formValues)
+        .then(resp => {
+          // console.log(`FOLLOWERS`,res);
+          this.setState({ 
+            followers: resp.data,
+            user: res.data,
+          formValues: this.state.formValues })
         })
-      })
-      .catch(err => console.log(err));
+    })
   }
 
 
