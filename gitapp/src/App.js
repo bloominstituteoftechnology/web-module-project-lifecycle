@@ -42,7 +42,7 @@ console.log(res.data)
   }
   render() {
   return (
-    <div className="App"> ello Lovely 
+    <div className="App"> 
       <Card login = {this.state.login}
      followers = {this.state.followers}
      url = {this.state.url}
