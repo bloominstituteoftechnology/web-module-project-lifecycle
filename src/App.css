@@ -1,11 +1,4 @@
 
-* {
-  box-sizing:border-box; /*respects the width of the box, apply padding or border within the width it's been given not in addition*/
-  max-width:100%; /*makes it so that elements can never be bigger than their parents, stops the horizontal scroll bar*/
-  padding:0;
-  margin:0;
-  border:solid 1px grey;
-}
 
 .body p {
   margin:5px
