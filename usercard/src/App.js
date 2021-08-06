@@ -24,14 +24,14 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("Component updated");
+    // console.log("Component updated");
     if (prevState.user !== this.state.user) {
-      console.log("User Changed!! ");
+      // console.log("User Changed!! ");
     }
   }
 
   getUser = (searchTerm) => {
-    console.log('Searching for user!', searchTerm)
+    // console.log('Searching for user!', searchTerm)
     axios.get(`https://api.github.com/users/${searchTerm}`)
       .then(res => this.setState({
         ...this.state,

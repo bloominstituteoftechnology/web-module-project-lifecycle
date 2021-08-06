@@ -9,15 +9,21 @@ class UserCard extends React.Component {
             followers: []
         }
     }
-    componentDidUpdate() {
+    componentDidUpdate(prevState) {
         // console.log('App Mounted!')
-        axios.get(`https://api.github.com/users/${this.props.userData.login}/followers`)
-            // .then(res => console.log(res.data))
-            .then(res => this.setState({
-                ...this.state,
-                followers: res.data
-            }))
-            .catch(err => console.log(err))
+        if (prevState.user !== this.state.followers) {
+            // console.log("User Changed!! ");
+            axios.get(`https://api.github.com/users/${this.props.userData.login}/followers`)
+                // .then(res => console.log(res.data))
+                .then(res => this.setState({
+                    ...this.state,
+                    followers: res.data
+                }))
+                .catch(err => console.log(err))
+        }
+
+        // }
+
     }
 
     render() {
