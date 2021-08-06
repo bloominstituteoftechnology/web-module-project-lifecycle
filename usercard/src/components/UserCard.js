@@ -9,7 +9,7 @@ class UserCard extends React.Component {
             followers: []
         }
     }
-    componentDidMount() {
+    componentDidUpdate() {
         // console.log('App Mounted!')
         axios.get(`https://api.github.com/users/${this.props.userData.login}/followers`)
             // .then(res => console.log(res.data))
