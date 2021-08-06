@@ -18,7 +18,9 @@ class User extends Component {
   }
   render() {
     const { user } = this.state;
+
     if (!this.state.user) return <p>Loading data...</p>;
+
     return (
       <div>
         <img
@@ -28,6 +30,7 @@ class User extends Component {
         />
         <h3>{this.state.user.name}</h3>
         <p>username: {user.login}</p>
+        <p>repos: {user.public_repos}</p>
       </div>
     );
   }
