@@ -1,6 +1,12 @@
 import React from 'react';
 import UserCard from './Usercard.js';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const FormWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 class NewUser extends React.Component {
     constructor(){
@@ -10,11 +16,11 @@ class NewUser extends React.Component {
             newUser: '',
             name: '',
             login: '',
-            id: 0,
+            id: null,
             url: '',
             avatar: '',
             followers: '',
-            followerCount: 0
+            followerCount: null
         }
     }
 
@@ -47,14 +53,14 @@ class NewUser extends React.Component {
 
     render(){
         return (
-            <div>
+            <FormWrapper>
                 <form onSubmit={this.submitHandler}>
                 <label /> Enter A Github User!
                 <input type="text" name="newuser" id="newuser" value={this.state.newUser} onChange={this.changeHandler}/>
                 <button>Enter</button>
                 <UserCard newUser={this.state.newUser} name={this.state.name} login={this.state.login} id={this.state.id} url={this.state.url} avatar={this.state.avatar} followers={this.state.followers} followerCount={this.state.followerCount} />
                 </form>
-            </div>
+            </FormWrapper>
         )
     }
 }

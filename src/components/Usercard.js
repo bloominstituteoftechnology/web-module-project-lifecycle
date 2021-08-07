@@ -18,12 +18,12 @@ class UserCard extends React.Component {
         return (
             <div>
             <img src={this.props.avatar} />
-            <div>Name: {this.props.name}</div>
-            <div>Login: {this.props.login}</div>
-            <div>ID: {this.props.id}</div>
-            <div>Github URL: {this.props.url}</div>
-            <div>Follower URL: {this.props.followers}</div>
-            <div>Follower count: {this.props.followerCount}</div>
+            <div>{this.props.name === '' ? '' : `Name: ${this.props.name}`}</div>
+            <div>{this.props.login === '' ? '' : `login: ${this.props.login}`}</div>
+            <div>{this.props.id === null ? '' : `ID: ${this.props.id}`}</div>
+            <div>{this.props.url === '' ? '' : `Github URL: ${this.props.url}`}</div>
+            <div>{this.props.followers === '' ? '' : `Follower URL: ${this.props.followers}`}</div>
+            <div>{this.props.followerCount === null ? '' : `Follower Count: ${this.props.followerCount}`}</div>
             </div>
         )
     }
