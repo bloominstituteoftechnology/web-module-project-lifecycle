@@ -14,12 +14,14 @@ const Container = styled.div`
     display: flex;
     margin: auto;
     align-items: center;
-    border: 2px solid black;
+    border: 3px solid black;
     width: 25%;
     padding: 0.5%;
-    background-color: grey;
+    background-image: url('https://www.pngkey.com/png/full/479-4795589_lavender-gradient-purple-gradient-transparent-background.png');
     color: white;
     border-radius: 8px;
+    font-weight: bold;
+    font-size: 90%;
 `;
 
 const ThumbnailContainer = styled.div`

@@ -22,6 +22,21 @@ const Button = styled.button`
     width: 40%;
     margin-top: 2%;
     margin-bottom: 2%;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: white;
+    padding: 1.5%;
+`;
+
+const Label = styled.label`
+    color: black;
+    font-weight: bold;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 2%;
+    padding: 1.5%;
+
 `;
 
 class NewUser extends React.Component {
@@ -81,7 +96,7 @@ class NewUser extends React.Component {
             <div>
             <FormContainer>
                     <FormWrapper onSubmit={this.submitHandler}>
-                    <label /> Enter Github Username!
+                    <Label>Enter Github Username!</Label>
                     <input type="text" name="newuser" id="newuser" value={this.state.newUser} onChange={this.changeHandler}/>
                     <Button>Enter</Button>
                     </FormWrapper>
