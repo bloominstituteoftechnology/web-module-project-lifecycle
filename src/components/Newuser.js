@@ -2,10 +2,26 @@ import React from 'react';
 import UserCard from './Usercard.js';
 import axios from 'axios';
 import styled from 'styled-components';
+import { Router, Route } from 'react-router-dom';
 
-const FormWrapper = styled.div`
+const FormWrapper = styled.form`
     display: flex;
     flex-direction: column;
+    width: 10%;
+    align-items: center;
+
+`;
+
+const FormContainer = styled.div`
+    display: flex;
+    justify-content: center;
+
+`;
+
+const Button = styled.button`
+    width: 40%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 `;
 
 class NewUser extends React.Component {
@@ -23,6 +39,8 @@ class NewUser extends React.Component {
             followerCount: null
         }
     }
+
+    
 
     submitHandler = e => {
         e.preventDefault();
@@ -49,18 +67,29 @@ class NewUser extends React.Component {
         });
       }
 
+      componentDidUpdate(prevProps, prevState) {
+          if (prevState.name !== this.state.name) {
+            console.log("new user appeared!" + ` ${this.state.login}`)
+            window.history.pushState('', '', `/${this.state.login}`);
+          }
+      }
 
 
     render(){
         return (
-            <FormWrapper>
-                <form onSubmit={this.submitHandler}>
-                <label /> Enter A Github User!
-                <input type="text" name="newuser" id="newuser" value={this.state.newUser} onChange={this.changeHandler}/>
-                <button>Enter</button>
-                <UserCard newUser={this.state.newUser} name={this.state.name} login={this.state.login} id={this.state.id} url={this.state.url} avatar={this.state.avatar} followers={this.state.followers} followerCount={this.state.followerCount} />
-                </form>
-            </FormWrapper>
+            
+            <div>
+            <FormContainer>
+                    <FormWrapper onSubmit={this.submitHandler}>
+                    <label /> Enter Github Username!
+                    <input type="text" name="newuser" id="newuser" value={this.state.newUser} onChange={this.changeHandler}/>
+                    <Button>Enter</Button>
+                    </FormWrapper>
+            </FormContainer>
+            <div>
+                {this.state.name == '' ? '' : <UserCard newUser={this.state.newUser} name={this.state.name} login={this.state.login} id={this.state.id} url={this.state.url} avatar={this.state.avatar} followers={this.state.followers} followerCount={this.state.followerCount} />}
+            </div>
+            </div>
         )
     }
 }

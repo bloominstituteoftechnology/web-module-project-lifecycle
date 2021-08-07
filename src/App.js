@@ -7,7 +7,6 @@ class App extends React.Component {
     super();
 
     this.state = {
-      name: ''
     }
   }
 
@@ -16,6 +15,7 @@ render(){
   return (
     <div className="App">
       <NewUser />
+      
     </div>
   );
 }
