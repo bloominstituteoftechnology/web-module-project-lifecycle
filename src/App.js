@@ -28,7 +28,7 @@ render(){
   return (
     <div className="App">
       <NewUser />
-    <Image src={githubFooter} className="footerImage"/>
+    <Image src={githubFooter} className="footerImage" alt="github logo"/>
     </div>
   );
 }

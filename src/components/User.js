@@ -1,13 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const UserAvatar = styled.img`
-    width: 70%;
-    height: 70%;
+const Avatar = styled.img`
+    width: 75%;
+    height: 75%;
 `;
 
 const Info = styled.div`
+font-size:1.2rem;
 `;
+
+const Para = styled.p`
+font-size:1.6rem;
+`
 
 const Container = styled.div`
     display: flex;
@@ -20,10 +25,10 @@ const Container = styled.div`
     color: white;
     border-radius: 8px;
     font-weight: bold;
-    line-height: 2rem
+    line-height: 2rem;
 `;
 
-const ThumbnailContainer = styled.div`
+const Thumb = styled.div`
 `;
 
 class UserCard extends React.Component {
@@ -42,10 +47,10 @@ class UserCard extends React.Component {
     render(){
         return (
             <Container>
-                <ThumbnailContainer>
-                    <p>{this.props.name}</p>
-                    <UserAvatar src={this.props.avatar} />
-                </ThumbnailContainer>
+                <Thumb>
+                    <Para>{this.props.name}</Para>
+                    <Avatar src={this.props.avatar} />
+                </Thumb>
 
                 <Info>
                     <div>{this.props.login === '' ? '' : `login: ${this.props.login}`}</div>
