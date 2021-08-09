@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './App.css';
+import CardMaker from './components/CardMaker'
 
 class App extends Component {
   constructor() {
@@ -22,7 +23,11 @@ class App extends Component {
   }
 
       render () {
-        return <div>hello world</div>
+        return (
+          <div>
+            <CardMaker data={this.state.data}/>
+          </div>
+          )
       }
 
 }
