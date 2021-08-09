@@ -14,9 +14,7 @@ const CardMaker = props => {
 				<CardBody>
 					<CardTitle tag="h4">{props.data.name}</CardTitle>
 					<CardSubtitle>{props.data.bio}</CardSubtitle>
-					
 				</CardBody>
-
 			</Card>
 		</div>
 	)

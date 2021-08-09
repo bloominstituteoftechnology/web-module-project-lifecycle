@@ -7,7 +7,8 @@ class App extends Component {
   constructor() {
       super();
       this.state = {
-        data: ''
+        data: '',
+        followers: ''
       }
   }
   
@@ -16,10 +17,18 @@ class App extends Component {
       .get('https://api.github.com/users/Purefallen11')
       .then(res => {
         this.setState({ data: res.data })
-        console.log(this.state)
       }).catch(err => {
       console.log(err)
-    })
+      })
+  }
+  componentDidMountagain() {
+    axios
+    .get('https://api.github.com/users/Purefallen11/followers')
+        .then(response => {
+          this.setState({ followers: response.data })
+        }).catch(errors => {
+        console.log(errors)
+      })
   }
 
       render () {
