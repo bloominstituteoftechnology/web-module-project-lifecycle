@@ -10,7 +10,7 @@ const UserCard = props => {
           <img src={props.avatar} alt="" />
           <div className="container">
               <h4 className="card-title">{props.login}</h4>
-              <p>{props.login} has {props.followers} followers</p>
+              <p>{props.login} has {props.followers} follower</p>
           </div>
       </div>
     </div>

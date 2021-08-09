@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>UserCard project</h1>
+        <h1>GitHub Usercard</h1>
         <UserCard login={this.state.user.login} followers={this.state.user.followers} avatar={this.state.user.avatar_url}/>
         <FollowerCard />
       </div>
