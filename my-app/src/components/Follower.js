@@ -26,7 +26,9 @@ class Follower extends React.Component {
                         <img alt={follower.login} src={follower.avatar_url} width='80%' height='80%' />
                     </div>
                     <div className='flip-card-back'>
-                        <h2><a href={follower.html_url}>{this.state.personsInfo.name}'s GitHub</a></h2>
+                        {this.state.personsInfo.name !== null ?
+                            <h2><a href={follower.html_url}>{this.state.personsInfo.name}'s GitHub</a></h2> :
+                            <h2><a href={follower.html_url}>{this.state.personsInfo.login}'s GitHub</a></h2>}
                         <p>Username: {this.state.personsInfo.login}</p>
                         {this.state.personsInfo.location !== null ? <p>Location: {this.state.personsInfo.location}</p> :
                             <></>}
