@@ -8,7 +8,7 @@ class Followers extends React.Component {
         followers: []
     }
     componentDidMount() {
-        Axios.get('https://api.github.com/users/aburn7577/followers')
+        Axios.get('https://api.github.com/users/AshleyCoder3/followers')
             .then(res => {
                 this.setState({
                     followers: res.data
