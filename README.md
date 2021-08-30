@@ -2,6 +2,21 @@
 
 This project allows you to practice the concepts and techniques learned in this module and apply them in a concrete project. This module explored lifecycle methods in class components. In your project you will demonstrate proficiency of these concepts by recreating the Github User Card project, but as a React application this time.
 
+- [Module Project: Component Lifecycle Methods - React Github User Card](#module-project-component-lifecycle-methods---react-github-user-card)
+  - [Introduction](#introduction)
+    - [Commits](#commits)
+  - [Instructions](#instructions)
+    - [Task 1: Project Set Up](#task-1-project-set-up)
+    - [Task 2: Minimum Viable Product](#task-2-minimum-viable-product)
+      - [Planning your App](#planning-your-app)
+      - [Fetch the User Data](#fetch-the-user-data)
+      - [Display the User Data](#display-the-user-data)
+      - [Fetch the User's Followers](#fetch-the-users-followers)
+      - [Style the User Card](#style-the-user-card)
+      - [Project Retrospective](#project-retrospective)
+    - [Task 3: Stretch Problems](#task-3-stretch-problems)
+  - [Submission Format](#submission-format)
+  - [Rick Mansfield's PUll Request Link](#rick-mansfields-pull-request-link)
 ## Introduction
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this project.**
@@ -82,3 +97,6 @@ After finishing your required elements, you can push your work further. These go
 - [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into `main` (student's Repository). **Please don't merge your own pull request**
 - [ ] From the home page of your repo, make sure you have your branch selected
 - [ ] Copy the URL and paste it into Canvas to submit your project
+
+## Rick Mansfield's PUll Request Link
+- [Link for Convenience](https://github.com/LambdaSchool/web-module-project-lifecycle/pull/91)
