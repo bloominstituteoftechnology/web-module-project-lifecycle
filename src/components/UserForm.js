@@ -1,18 +1,18 @@
 import React from 'react';
 
-class userForm extends React.Component {
+class UserForm extends React.Component {
 state = {
     user:"",
 }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        this.props.fetchUser(this.state.user)
-    }
+    // handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     this.props.fetchUser(this.state.user)
+    // }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.props.onSubmit}>
             <div>
 
                 <input type="text" placeholder="GitHub User Name" />
@@ -23,4 +23,4 @@ state = {
     }
 }
 
-export default userForm;
+export default UserForm;
