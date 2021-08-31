@@ -6,15 +6,37 @@ import Profile from './components/Profile';
 
 class App extends React.Component {
   state = {
-    input: '',
     avatar_url: '',
     bio: '',
-    login: '',
-    followers_url: '',
-    following_url: '',
+    user: '',
     name: '',
-    isSubmitted: false
+    isSubmitted: false,
+    url: '',
+    userData: {}
   };
+
+  handleChange = e => {
+    this.setState({
+      ...this.state,
+      user: e.target.value
+    });
+  };
+
+ searchUser = username => {
+   this.setState({
+     isSubmitted: true,
+     url: `https://api.github.com/users/${username}`
+   });
+ };
+
+ resetHandler = () => {
+  this.setState({
+    user:'',
+    isSubmitted: false,
+    url:'',
+    userData:{}
+  });
+};
 
   componentDidMount() {
     console.log('App: CDM');
@@ -22,31 +44,21 @@ class App extends React.Component {
     // using conditional rendering in Profile component so I don't have to have user to start
   };
 
-  handleChange = e => {
-    this.setState({
-      ...this.state,
-      input: e.target.value
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    axios.get(`https://api.github.com/users/${this.state.input}`)
-      .then(resp => {
-        console.log('handleSubmit response', resp);
-        this.setState({
-          ...this.state,
-          avatar_url: resp.data.avatar_url,
-          bio: resp.data.bio,
-          login: resp.data.login,
-          followers_url: resp.data.followers_url,
-          following_url: resp.data.following_url,
-          name: resp.data.name,
-          isSubmitted: true
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isSubmitted !== this.state.isSubmitted) {
+      axios.get(this.state.url)
+        .then(resp=> {
+          // console.log('CDU: isSubmitted = TRUE ', resp.data);
+          this.setState({
+            userData: resp.data //send this to profile component so it renders
+          })
         })
-      })
-      .catch(err => {console.log(err);})
-  };
+        .catch(err => {
+          console.log(err);
+          window.alert('No user found with that name - please try again')
+        })
+    }
+  }
 
   render () {
     // console.log('App: Rendered');
@@ -55,32 +67,18 @@ class App extends React.Component {
       <div className='app-container'>
 
         <h1>Github User App</h1>
-          <Form
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            input={this.state.input}
-          />
-          {/* <form onSubmit={this.handleSubmit}>
-            <input
-              type='text'
-              onChange={this.handleChange}
-              value={this.state.input}
-              placeholder='Search for a new user'
+        {!this.state.isSubmitted ?
+            <Form
+              handleChange={this.handleChange}
+              searchUser={this.searchUser}
+              user={this.state.user}
             />
-            <button>Find</button>
-          </form> */}
-
-          {/* <Profile
-          
-          /> */}
-
-        <div className='github-card'>
-            <img src={this.state.avatar_url} width={150} alt={`${this.state.login}'s Github avatar`}/>
-            <h4>{this.state.login}</h4>
-            <h5>Here's a little more about {this.state.name}'s Github Profile</h5>
-            <p>{this.state.bio}</p>
-        </div>
-
+          :
+            <Profile
+              resetHandler={this.resetHandler}
+              userData={this.state.userData}
+            />
+        }
       </div>
     );
   };
