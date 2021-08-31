@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import './App.css'
+import Form from './components/Form';
 import Profile from './components/Profile';
 
 class App extends React.Component {
@@ -15,11 +16,11 @@ class App extends React.Component {
     isSubmitted: false
   };
 
-  // componentDidMount() {
-  //   console.log('App: CDM');
-  //   // exact same as empty watcher array useEffect
-  //   // using conditional rendering in Profile component so I don't have to have user to start
-  // };
+  componentDidMount() {
+    console.log('App: CDM');
+    // exact same as empty watcher array useEffect
+    // using conditional rendering in Profile component so I don't have to have user to start
+  };
 
   handleChange = e => {
     this.setState({
@@ -54,7 +55,12 @@ class App extends React.Component {
       <div className='app-container'>
 
         <h1>Github User App</h1>
-          <form onSubmit={this.handleSubmit}>
+          <Form
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            input={this.state.input}
+          />
+          {/* <form onSubmit={this.handleSubmit}>
             <input
               type='text'
               onChange={this.handleChange}
@@ -62,7 +68,7 @@ class App extends React.Component {
               placeholder='Search for a new user'
             />
             <button>Find</button>
-          </form>
+          </form> */}
 
           {/* <Profile
           
