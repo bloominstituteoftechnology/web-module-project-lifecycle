@@ -4,7 +4,7 @@
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="App.js&amp;nbsp;&lt;br&gt;Applicatoin State&lt;br&gt;FetchUser()&lt;br&gt;FetchFollowers()&lt;br&gt;ComponentDidMount()&lt;br&gt;handleSubmit()&lt;br&gt;&lt;br&gt;render()&lt;br&gt;&lt;ul&gt;&lt;li&gt;Userform&lt;/li&gt;&lt;li&gt;USer Card&lt;/li&gt;&lt;li&gt;Followers&lt;/li&gt;&lt;/ul&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="2" value="App.js&amp;nbsp;&lt;br&gt;Applicatoin State&lt;br&gt;FetchUser()&lt;br&gt;FetchFollowers()&lt;br&gt;ComponentDidMount()&lt;br&gt;handleSubmit()&lt;br&gt;&lt;br&gt;render()&lt;br&gt;&lt;ul&gt;&lt;li&gt;Userform&lt;/li&gt;&lt;li&gt;USer Card&lt;/li&gt;&lt;li&gt;Followers&lt;/li&gt;&lt;/ul&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" vertex="1" parent="1">
                     <mxGeometry x="110" y="40" width="200" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
@@ -13,10 +13,10 @@
                         <mxPoint x="370" y="120" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="7" value="UserForm" style="swimlane;" vertex="1" parent="1">
+                <mxCell id="7" value="UserForm" style="swimlane;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="1">
                     <mxGeometry x="390" y="10" width="150" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="Collects user input" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="7">
+                <mxCell id="14" value="Collects user input" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="7">
                     <mxGeometry x="20" y="80" width="110" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="Collects user input" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="7">
@@ -28,7 +28,7 @@
                 <mxCell id="20" value="Componnent State" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="7">
                     <mxGeometry x="10" y="40" width="120" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="UserCard" style="swimlane;" vertex="1" parent="1">
+                <mxCell id="10" value="UserCard" style="swimlane;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="1">
                     <mxGeometry x="620" y="40" width="140" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" value="HTML markup&amp;nbsp;&lt;br&gt;Name&lt;br&gt;GitHub Handle etc." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="10">
@@ -43,10 +43,10 @@
                         <mxPoint x="610" y="110" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="24" value="Followers" style="swimlane;" vertex="1" parent="1">
+                <mxCell id="24" value="Followers" style="swimlane;strokeColor=#3700CC;fontColor=#ffffff;fillColor=#6A00FF;" vertex="1" parent="1">
                     <mxGeometry x="390" y="210" width="160" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="Followers Card" style="swimlane;" vertex="1" parent="1">
+                <mxCell id="25" value="Followers Card" style="swimlane;fillColor=#6a00ff;strokeColor=#3700CC;fontColor=#ffffff;" vertex="1" parent="1">
                     <mxGeometry x="630" y="210" width="140" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="HTML Markup" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="25">
