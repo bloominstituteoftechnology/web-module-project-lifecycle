@@ -123,10 +123,11 @@ h1 {
 .card {
   width: 100%;
   padding: 20px;
+  color: #4f4f4f;
   display: flex;
   border-radius: 5px;
   box-shadow: 0 1px 6px -2px #000;
-  background-color: #FFF;
+  background-color: mistyrose;
   margin-bottom: 25px;
 }
 
@@ -170,6 +171,7 @@ h1 {
 display: flex;
 align-items: center;
 padding-bottom: 1%;
+color: #4f4f4f;
 }
 
 .followers h2 {
