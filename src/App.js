@@ -7,7 +7,7 @@ import Followers from './components/Followers';
 
 class App extends React.Component {
   state = {
-    title: "GitHub Friends",
+    // title: "GitHub Friends",
     user: "rickmansfield",
     followers: [],
     input: '',

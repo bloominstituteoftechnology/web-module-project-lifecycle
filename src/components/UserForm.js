@@ -22,13 +22,14 @@ class UserForm extends React.Component {
 
     render() {
         return (
+            <div className='user'>
             <form onSubmit={this.handleSubmit}>
                 <div>
-
                     <input type="text" placeholder="GitHub User Name" onChange={this.handleChanges} value={this.state.input}/>
                     <button >Find User</button>
                 </div>
             </form>
+            </div>
         );
     }
 }
