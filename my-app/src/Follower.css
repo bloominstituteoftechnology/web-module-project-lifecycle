@@ -1,0 +1,18 @@
+.card {
+    width:100%;
+    display:flex;
+    flex-flow:row nowrap;
+    border:1px solid black;
+}
+
+.pic {
+    max-width: 100%;
+    height: auto;
+}
+
+.bio {
+    padding: 10px;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content: center;
+}
