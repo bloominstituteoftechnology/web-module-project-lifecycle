@@ -19,13 +19,13 @@ Commit your code regularly and meaningfully. This helps you and any collaborator
 - [X] Use CRA to create a new React app in this repository
 - [X] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [X] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
-- [ ] From the home page of your repo, make sure you have your branch selected
-- [ ] Copy the URL and paste it into Canvas
+- [X] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
+- [X] From the home page of your repo, make sure you have your branch selected
+- [X] Copy the URL and paste it into Canvas
 
 ### Task 2: Minimum Viable Product
 
