@@ -113,6 +113,11 @@
 .repo a {
   text-decoration: none;
 }
+
+.repo a:hover {
+  text-decoration: underline #33adff;
+}
+
 .repo a h5 {
   font-size: 1.3rem;
   letter-spacing: 0.05rem;
