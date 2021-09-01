@@ -11,7 +11,6 @@ class App extends React.Component {
       followersCards: []
   }
 
-
   componentDidMount() {
     axios.get('https://api.github.com/users/ayv8er')
       .then(res => {
@@ -24,11 +23,11 @@ class App extends React.Component {
               response.data.forEach(user => {
                 axios.get(user.url)
                   .then(resp => {
-                    console.log(resp)
-                    // this.setState({
-                    //   ...this.state,
-                    //   followersCards: resp
-                    // })
+                    // console.log(resp.data)
+                    this.setState({
+                      ...this.state,
+                      followersCards: [...this.state.followersCards, resp.data]
+                    })
                   })
               })
             })
@@ -48,7 +47,7 @@ class App extends React.Component {
           {
             this.state.followersCards.map(item => {
               // console.log(item)
-              return <Follower key={item.data.id} follower={item.data} />
+              return <Follower key={item.id} follower={item} />
             })
           }
         </div>
