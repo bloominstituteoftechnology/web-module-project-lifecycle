@@ -15,7 +15,7 @@ class App extends React.Component {
   fetchUser = (name) => {
     axios.get(`https://api.github.com/users/${name}`)
       .then(res => {
-        console.log('App.js fetchUser res.data', res.data)
+        // console.log('App.js fetchUser res.data', res.data)
         this.setState({
           ...this.state,
           user: res.data
@@ -27,7 +27,7 @@ class App extends React.Component {
   fetchFollowers = (name) => {
     axios.get(`https://api.github.com/users/${name}/followers`)
       .then(res => {
-        console.log('App.js fetchFollowers res.data', res.data)
+        // console.log('App.js fetchFollowers res.data', res.data)
         this.setState({
           ...this.state,
           followers: res.data
@@ -36,7 +36,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('App.js componentDidMount user state:', this.state.user);
+    // console.log('App.js componentDidMount user state:', this.state.user);
     this.fetchUser(this.state.user)
     this.fetchFollowers(this.state.user)
   }
@@ -51,7 +51,7 @@ class App extends React.Component {
 
   handleSubmit = input => {
     // e.preventDefault();
-    console.log('App.js Fetch User HandleSubmit this.state.user', this.state.user);
+    // console.log('App.js Fetch User HandleSubmit this.state.user', this.state.user);
     this.fetchUser(input)
     this.fetchFollowers(input)
   }

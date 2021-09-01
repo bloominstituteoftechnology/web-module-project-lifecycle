@@ -4,7 +4,7 @@ import FollowersCard from './FollowersCard';
 class Followers extends Component {
 
     render() {
-        console.log('Followers.js this.props.followers', this.props.followers);
+        // console.log('Followers.js this.props.followers', this.props.followers);
         return (
             <div className='followers'>
                 <h2>Followers</h2>
