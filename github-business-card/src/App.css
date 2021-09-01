@@ -1,0 +1,87 @@
+
+body{
+  background-color: grey;
+  padding: 12vh 20vw;
+}
+
+
+.card-container{
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  border-radius: 20px;
+}
+
+.container{
+  padding-top: 1.5vh;
+  display: flex;
+  flex-direction: row;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  justify-content: space-between;
+  align-items: center;
+  
+
+
+}
+
+.container img{
+  height: 40%;
+  width: 40%;
+  border-radius: 20px;
+  margin-right: 3vw;
+  
+}
+
+.container h1{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+}
+
+.container p{
+  padding: 2vh 2vw;
+  border: 1px solid rgba(0, 0, 0, 0.103);
+  border-radius: 20px;
+  font-size: 1.2rem;
+}
+
+.follower-container{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: .8rem;
+  text-align: center;
+  font-weight: bold;
+  padding: 1vh 1vw;
+
+}
+
+.follower-container img{
+  margin: auto;
+  height: 80%;
+  width: 80%;
+  border-radius: 20px;
+}
+
+.info-container{
+  text-align: center;
+  text-decoration: none;
+}
+
+.info-container a{
+  text-decoration: none;
+  color: black;
+}
+
+.info-container span{
+  font-weight: bold;
+  color: black;
+}
