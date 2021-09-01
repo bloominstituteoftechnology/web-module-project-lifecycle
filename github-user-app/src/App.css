@@ -2,9 +2,121 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: black;
+  color: white;
 }
+
+/* App */
 
 .app-container {
   margin: 10px;
   padding: 30px;
+}
+
+/* Header */
+
+.header-container {
+  display: flex column;
+  /* border: 1px solid black; */
+  padding: 10px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.search-btn {
+  margin: 3px;
+  padding: 10px 10px;
+  background-color: grey;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+/* Form */
+.form-container {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid black; */
+  margin-top: 150px;
+  /* border: 1px solid red; */
+  text-align: center;
+}
+
+.form {
+  /* border: 1px solid black; */
+  padding: 5px;
+  display: flex column;
+}
+
+.form input {
+  margin: 0 0 15px 0;
+  background-color: white;
+  padding: 10px 30px;
+  text-align: center;
+  color: black;
+  font-size: 2rem;
+}
+
+/* Profile Card */
+
+.user-card-container {
+  display: flex;
+  /* border: 3px solid red; */
+}
+
+.reset {
+  text-align: center;
+}
+
+.github-card {
+  /* border: 1px solid pink; */
+  width: 200px;
+  margin: 10px 0;
+  padding: 8px 0;
+  height: fit-content;
+}
+
+.profile-name {
+  color: #33adff;
+  margin: 10px 0;
+}
+
+.profile-login {
+  color: grey;
+  margin: 5px 0;
+}
+
+.profile-bio {
+  font-style: italic;
+  width: 150px;
+}
+
+/* Followers */
+.followers-container {
+  /* border: 3px solid yellow; */
+  width: 200px;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  height: fit-content;
+}
+
+.follower {
+  /* border: white 2px solid; */
+  width: fit-content;
+  margin: 5px;
+  height: fit-content;
+}
+
+/* Repos */
+
+.repo a {
+  text-decoration: none;
+}
+.repo a h5 {
+  font-size: 1.3rem;
+  letter-spacing: 0.05rem;
+  margin: 10px;
+  color: #33adff;
+  text-decoration: none;
 }

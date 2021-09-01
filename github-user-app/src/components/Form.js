@@ -10,8 +10,8 @@ class Form extends React.Component {
 
     render () {
         return (
-            <div>
-                <form onSubmit={this.submitHandler}>
+            <div className='form-container'>
+                <form className='form' onSubmit={this.submitHandler}>
                     <input
                         type='text'
                         onChange={this.props.handleChange}
@@ -20,8 +20,10 @@ class Form extends React.Component {
                         name='user'
                         placeholder='Search for a new user'
                     />
-                    <button>Find</button>
-                    <p>Pick a new user to continue</p>
+                    <div className='btn-container'>
+                        <button className='search-btn'>Find</button>
+                    </div>
+                    <p className='error-msg'>Pick a new user to continue</p>
                 </form>
             </div>
         )

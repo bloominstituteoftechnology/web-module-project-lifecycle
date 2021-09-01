@@ -3,13 +3,16 @@ import axios from 'axios'
 import './App.css'
 import Form from './components/Form';
 import Profile from './components/Profile';
+import Header from './components/Header'
 
 class App extends React.Component {
   state = {
     avatar_url: '',
     bio: '',
+    followers: [],
     user: '',
     name: '',
+    repos: [],
     isSubmitted: false,
     url: '',
     userData: {}
@@ -46,7 +49,7 @@ class App extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.isSubmitted !== this.state.isSubmitted) {
-      axios.get(this.state.url)
+      axios.get(this.state.url) // comes from searchUser
         .then(resp=> {
           // console.log('CDU: isSubmitted = TRUE ', resp.data);
           this.setState({
@@ -55,8 +58,27 @@ class App extends React.Component {
         })
         .catch(err => {
           console.log(err);
-          window.alert('No user found with that name - please try again')
+          this.resetHandler(); 
+          window.alert('No user found with that name - please try again');
         })
+        .then(
+          axios.get(`${this.state.url}/followers`)
+            .then(resp => {
+              console.log('CDU, successful search, followers' , resp.data);
+              this.setState({
+                followers: resp.data
+              })
+            })
+        )
+        .then(
+          axios.get(`${this.state.url}/repos`)
+            .then(resp => {
+              console.log('CDU: successful repo pull', resp.data);
+              this.setState({
+                repos: resp.data
+              })
+            })
+        )
     }
   }
 
@@ -66,7 +88,10 @@ class App extends React.Component {
 
       <div className='app-container'>
 
-        <h1>Github User App</h1>
+        <Header 
+          resetHandler={this.resetHandler}
+        
+        />
         {!this.state.isSubmitted ?
             <Form
               handleChange={this.handleChange}
@@ -75,7 +100,8 @@ class App extends React.Component {
             />
           :
             <Profile
-              resetHandler={this.resetHandler}
+              followers={this.state.followers}
+              repos={this.state.repos}
               userData={this.state.userData}
             />
         }
