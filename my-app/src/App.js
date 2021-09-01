@@ -7,7 +7,7 @@ class App extends React.Component{
     users: [],
     userName:""
   }
-
+//
   componentDidMount(){
     axios.get(`https://api.github.com/users/${this.state.userName}/followers`)
       .then((res) => {
