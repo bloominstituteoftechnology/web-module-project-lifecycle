@@ -1,22 +1,15 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
+import User from './components/User'
 
-class App extends React.Component {
-    render() {
-      return (
-        <div>
-          <h1>Sebastian's Card</h1>
-          <form>
-            <input/>
-            <button>Find friend</button>
-            <div id='data'>
-
-            </div>
-            
-          </form>
-        </div>
-      )
-    }
+function App() {
+  return (
+    <div>
+      <h1>Sebastian's Github User Card</h1>
+       <User />
+       {/* <Followers />    */}
+  </div>
+  )
 }
      
 export default App;
