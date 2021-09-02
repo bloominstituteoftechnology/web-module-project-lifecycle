@@ -19,3 +19,13 @@ class UserCard extends React.Component {
 }
 
 export default UserCard;
+
+// import React from 'react'
+
+// export default function UserCard() {
+//     return (
+//         <div>
+            
+//         </div>
+//     )
+// }
