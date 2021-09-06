@@ -6,7 +6,11 @@ This project allows you to practice the concepts and techniques learned in this 
 
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this project.**
 
+<<<<<<< HEAD
 ### Commits...
+=======
+### Commits..
+>>>>>>> 5cbcbfdc4d9688ac5471217ac773af6f6dd5261e
 
 Commit your code regularly and meaningfully. This helps you and any collaborators in case you ever need to return to old code for any number of reasons.
 
