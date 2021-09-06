@@ -25,8 +25,8 @@ import React from 'react';
    render() {
      return (
        <div className="App">
-         <h1>UserCard project</h1>
-         <UserCard login={this.state.user.login} followers={this.state.user.followers} avatar={this.state.user.avatar_url}/>
+         <h1>UserCard Project</h1>
+         <UserCard login={this.state.user.login} followers={this.state.user.followers} avatar={this.state.user.avatar_url} repos={this.state.user.public_repos}/>
          <FollowerCard />
        </div>
      );
