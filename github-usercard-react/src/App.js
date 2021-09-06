@@ -12,10 +12,6 @@ import React from 'react';
    }
 
 
-   // login: "AidanJJenkins"
-   // followers: 2
-   // avatar_url: "https://avatars.githubusercontent.com/u/75285874?v=4"
-
    componentDidMount() {
      axios.get("https://api.github.com/users/WrongAlice")
        .then(res => this.setState({
