@@ -15,28 +15,23 @@ class App extends React.Component{
     componentDidMount(){
       axios.get('https://api.github.com/users/minasoha/followers')
         .then(resp =>{
+          
           this.setState({
             ...this.state,
             followers: resp.data.map(res =>{
+              
               return{
+                
                 login: res.login,
                 picture: res.avatar_url
+                
               }
+              
             })
+            
           })
         })
-        // .then((resp) =>{
-          
-        //   this.setState({
-        //       ...this.state,
-        //       followers: resp.data.map(result =>{
-        //         return{
-        //            login: result.login,
-        //            picture: result.avatar_url
-    
-        //   }})
-          
-        // }})})
+
 
     }
   render(){
@@ -50,14 +45,22 @@ class App extends React.Component{
           <p>Username: minasoha</p>
           <p>Follower Count: 10</p>
         </div>
-        <div>
-          {
-            this.state.followers.map(followers => {
-              return(<img  key={followers} width="200" src={followers} />)
-            })
+        <form>
+          <input />
+          <button> Search</button>
+          <div className="followers">
+            {  this.state.followers.map(followers => {
+                return(
+                <div>
+                  <img key={followers} width="200" src={followers.picture} />
+                  <p>{followers.login}</p>
+                </div>
+                )
+              })
+            }
+          </div>
 
-          }
-        </div>
+        </form>
       </div>
     )
   }
