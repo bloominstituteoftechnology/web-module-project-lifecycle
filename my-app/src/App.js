@@ -4,19 +4,43 @@ import axios from 'axios';
 
 
 class App extends React.Component{
+
+  state = {
+    followers: [],
+   
+    
+  }
+
+
+    componentDidMount(){
+      axios.get('https://api.github.com/users/minasoha/followers')
+        .then(resp =>{
+          this.setState({
+            ...this.state,
+            followers: resp.data.map(res =>{
+              return{
+                login: res.login,
+                picture: res.avatar_url
+              }
+            })
+          })
+        })
+        // .then((resp) =>{
+          
+        //   this.setState({
+        //       ...this.state,
+        //       followers: resp.data.map(result =>{
+        //         return{
+        //            login: result.login,
+        //            picture: result.avatar_url
+    
+        //   }})
+          
+        // }})})
+
+    }
   render(){
-    const followers = [
-      "https://avatars.githubusercontent.com/u/1483837?v=4",
-      "https://avatars.githubusercontent.com/u/16849092?v=4",
-      "https://avatars.githubusercontent.com/u/39303588?v=4",
-      "https://avatars.githubusercontent.com/u/71340015?v=4",
-      "https://avatars.githubusercontent.com/u/75883540?v=4",
-      "https://avatars.githubusercontent.com/u/84058769?v=4",
-      "https://avatars.githubusercontent.com/u/86445750?v=4",
-      "https://avatars.githubusercontent.com/u/87157585?v=4",
-      "https://avatars.githubusercontent.com/u/87495756?v=4",
-      "https://avatars.githubusercontent.com/u/87831982?v=4",
-    ]
+    
       
     return(
       <div>
@@ -28,8 +52,8 @@ class App extends React.Component{
         </div>
         <div>
           {
-            followers.map(followers => {
-              return(<img key={followers} width="200" src={followers} />)
+            this.state.followers.map(followers => {
+              return(<img  key={followers} width="200" src={followers} />)
             })
 
           }
