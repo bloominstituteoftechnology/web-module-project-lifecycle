@@ -39,11 +39,8 @@ class App extends React.Component{
         console.log(resp)
       })
     }
-
-
   render(){
-    
-      
+       
     return(
       <div>
         <h1>Welcome to my Github</h1>
@@ -51,6 +48,7 @@ class App extends React.Component{
           <img src="https://avatars.githubusercontent.com/u/87757115?v=4" />
           <p>Username: minasoha</p>
           <p>Follower Count: 10</p>
+          
         </div>
         <form className="followers">
           <input value={this.state.search} onChange={this.handleInput}/>
@@ -58,9 +56,11 @@ class App extends React.Component{
           <div className="pics">
             {  this.state.followers.map(followers => {
                 return(
-                <div>
+                <div className="card">
                   <img key={followers} width="200" src={followers.picture} />
-                  <p>{followers.login}</p>
+                  <div className="card-info">
+                    <p>Profile: <a href = {followers.login}>{followers.login}</a></p>
+                  </div>
                   
                 </div>
                 )

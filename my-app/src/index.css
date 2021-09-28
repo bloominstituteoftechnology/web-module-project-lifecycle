@@ -89,23 +89,21 @@ body {
   font-size: 48px;
 }
 
-.pics {
+.cards {
   width: 100%;
 }
 
-.pics {
+.card {
   width: 100%;
   padding: 20px;
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
+  display: flex;
   border-radius: 5px;
   box-shadow: 0 1px 6px -2px #000;
   background-color: #FFF;
   margin-bottom: 30px;
 }
 
-.pics img {
+.card img {
   width: 150px;
   height: 150px;
   border-radius: 3px;
@@ -114,12 +112,12 @@ body {
 
 
 
-.pics p {
+.card p {
   font-size: 1.4rem;
   margin-bottom: 3px;
 }
 
-.pics p {
+.card p {
   font-size: 1.8rem;
   font-style: italic;
   margin: 3px 0 10px;
