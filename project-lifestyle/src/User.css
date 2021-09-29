@@ -1,0 +1,28 @@
+.card {
+  background-color: #b2a5fcfb;
+  width: 40rem;
+}
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: #ffc6ffd5;
+}
+img {
+  margin: 3% 5%;
+}
+.content {
+  margin-left: 3%;
+  margin-right: 10%;
+}
+.url {
+  text-decoration: underline;
+  color: #ffc6ffd5;
+}
+.img {
+  margin-top: 0;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
