@@ -1,11 +1,13 @@
 import React from "react";
 import axios from 'axios';
 
+import Users from "./components/Users";
+
 class App extends React.Component 
 {
     state =
         {
-            users: [],
+            usersArray: [],
             user: ""
         };
 
@@ -16,29 +18,17 @@ class App extends React.Component
             {
                 this.setState({
                     ...this.state,
-                    users: resp.data.login
+                    user: resp.data
                 });
             });
     };
 
-    handleInput = (e) =>
-    {
-        this.setState({
-            ...this.state,
-            user: e.target.name
-        });
-    };
-
     render()
     {
+        console.log("App: Renders DOM");
         return (
-            <div>
-                <header>
-                    <h1>React Github User Card</h1>
-                </header>
-                <form>
-                    <h2>TEST</h2>
-                </form>
+            <div className="App">
+                {this.state.usersArray.length === 0 ? <div>Loading</div> : <Users user={this.state.user} />}
             </div>
         );
     }
