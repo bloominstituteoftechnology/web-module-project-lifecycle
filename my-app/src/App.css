@@ -5,7 +5,9 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  text-shadow: 2px 2px black;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -15,14 +17,28 @@
 
 .App-header {
   background-color: #616368;
-  min-height: 100vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(214, 172, 172);
 }
+
+.nav-button{ 
+    /* display: flex;
+    align-items: center;
+  justify-content: center; */
+    background-color: #547bdd;
+    color: rgb(240, 237, 243);
+    /* border-radius: 0.3rem;
+    border-color: black; 
+    width: 10rem; */
+} 
+
+
 
 .App-link {
   color: #61dafb;
