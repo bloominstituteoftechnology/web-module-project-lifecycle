@@ -7,20 +7,23 @@ class App extends React.Component
 {
     state =
         {
-            usersArray: [],
+            usersArray: ["anastasia-lapteva", "vasilii-garanin", "tetondan", "dustinmyers", "justsml", "luishrd", "bigknell"],
             user: ""
         };
 
     componentDidMount()
     {
-        axios.get("https://api.github.com/users/anastasia-lapteva")
+        // usersArray.foreach(username =>
+        // {
+        axios.get(`https://api.github.com/users/anastasia-lapteva`)
             .then(resp =>
             {
                 this.setState({
                     ...this.state,
-                    user: resp.data
+                    user: resp.data.login
                 });
             });
+        // }
     };
 
     render()

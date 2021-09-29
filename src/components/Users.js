@@ -13,7 +13,7 @@ class Users extends React.Component{
         console.log("UserS: Renders DOM");
         return(
             <>
-                {this.props.usersArray.map(user => (
+                {this.props.user.map(user => (
                     <User key={user.id} user={user} />
                 ))}
             </>
