@@ -44,15 +44,11 @@ class App extends React.Component {
     <div>
       <section>
         <h1>GITHUB INFO</h1>
-        <form>
-          <input 
-          type='text'
-          />
           <button>Github Handle</button>
-        </form>
         <form>
           <input 
           type='text'
+          placeholder="Search Github User"
           />
           <button>Search</button>
         </form>

@@ -4,23 +4,6 @@ import Follower from './Follower'
 
 class FollowerList extends React.Component{
 
-    /* state = {
-        followers: []
-    }
-
-    componentDidMount() {
-        axios.get('https://api.github.com/users/peterdavidconley/followers')
-            .then(resp=> {
-                this.setState({
-                    ...this.state,
-                    followers: resp.data
-                });
-            })
-            .catch(err=> {
-                console.log(err);
-            });
-        } */
-
         render(){
             return(
                 <section>
