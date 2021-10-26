@@ -8,14 +8,15 @@ const userName = 'Kseniyapl'
 
 class App extends React.Component {
   state = {
-    user:[]
+    user:[],
+   
   }
 
 
   componentDidMount() {
     axios.get(`https://api.github.com/users/${userName}`)
     .then(resp=>{
-      console.log(resp.data)
+     // console.log(resp.data)
       this.setState({
         ...this.state,
         user:resp.data
@@ -30,7 +31,7 @@ class App extends React.Component {
     return(<div>
       Github Card
       <User user={this.state.user}/>
-      <FollowerList />
+      <FollowerList userName={userName}/>
     </div>);
   }
 }
