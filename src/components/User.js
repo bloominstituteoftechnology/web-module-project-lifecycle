@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios'
+import '../App.css'
 
 class User extends React.Component {
   
@@ -8,8 +9,10 @@ class User extends React.Component {
 
     return(
     <div>
-      <section>
-        <img height='200px' width='200px' src={this.props.profile.avatar_url}/>
+      <section className='user'>
+        <div>
+          <img height='200px' width='200px' src={this.props.profile.avatar_url}/>
+        </div>
         <div>
           <h3>{this.props.profile.name}</h3>
           <p>{this.props.profile.login}</p>

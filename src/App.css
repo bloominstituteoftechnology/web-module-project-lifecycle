@@ -36,8 +36,15 @@
   display: flex;
 }
 
+.user {
+  display: flex;
+}
+
+.user div {
+  margin: 2%;
+}
+
 .followers {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
 }

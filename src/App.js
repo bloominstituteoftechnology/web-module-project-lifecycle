@@ -83,9 +83,7 @@ handleSubmit = (e) => {
       <User profile={this.state.profile}/>
       <h2>FOLLOWERS:</h2>
       <br />
-      <div className='followers'>
-        <FollowerList followers={this.state.followers}/>
-      </div>
+      <FollowerList followers={this.state.followers}/>
     </div>);
   }
 }
