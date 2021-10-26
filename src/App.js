@@ -1,6 +1,27 @@
 import React from 'react';
+import axios from 'axios'
 
 class App extends React.Component {
+
+  state = {
+    followers: [],
+    profile: []
+  }
+
+  componentDidMount() {
+    axios.get('https://api.github.com/users/peterdavidconley/followers')
+        .then(resp=> {
+            this.setState({
+                ...this.state,
+                followers: resp.data
+            });
+        })
+        .catch(err=> {
+            console.log(err);
+        });
+}
+
+
   render() {
     return(
     <div>
@@ -22,8 +43,12 @@ class App extends React.Component {
       <section>
         <h2>FOLLOWERS:</h2>
         <br />
-        <img height='150px' width='150px' src='https://avatars.githubusercontent.com/u/18486822?v=4'/>
-        <h5>nullflux</h5>
+        { this.state.followers.map( (follower) => {return (
+        <div>
+        <img height='150px' width='150px' src={follower.avatar_url}/>
+        <h5>{follower.login}</h5>
+        </div>)}
+        )}
       </section>
     </div>);
   }
