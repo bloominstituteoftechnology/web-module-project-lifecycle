@@ -9,7 +9,7 @@ class User extends React.Component {
         <div className="profile-div">
             <img src={this.props.user.avatar_url} alt="avatar" />
             <div className="user-info">
-                <h3>{this.props.user.name}</h3>
+                <h2>{this.props.user.name}</h2>
                 <p>{this.props.user.login}</p>
                 <p>Total Repos: {this.props.user.public_repos}</p>
                 <p>Total Followers: {this.props.user.followers}</p>

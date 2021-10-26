@@ -66,10 +66,11 @@ class App extends React.Component {
   }
 
   render() {
-    return(<div>
+    return(
+    <div className="main-div">
       <h1>Github Card</h1>
       <form name="searchForm" onSubmit={this.handleSubmit}>
-        <input value={this.state.input} type="text" name="searchText" onChange={this.handleChange}/>
+        <input placeholder="search github users"value={this.state.input} type="text" name="searchText" onChange={this.handleChange}/>
         <button>search</button>
       </form>
       <User user={this.state.user} followers={this.state.followers}/>
