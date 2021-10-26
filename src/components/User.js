@@ -1,28 +1,20 @@
-import React from 'react'
+import React from 'react';
+// import axios from 'axios';
 
 class User extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            user: ''
-        }
-    }
 
     render() {
-        return(
-            <div className='card'>
-                <h3 className='name'>{this.props.userData.name}</h3>
-                <p>{this.props.userData.location}</p>
-                <img src={this.props.userData.avatar_url} alt='user profile' width='15%'/>
-                    <div className='card-info'>
-                        <p className='username'>Username: {this.props.userData.login}</p>
-                        <p className='Bio'>Bio: {this.props.userData.bio}</p>
-                        <p className='followers'>Followers: {this.props.userData.followers}</p>
-                        <p className='following'>Following: {this.props.userData.following}</p>
-                         <a href={this.props.userData.html_url}>   
-                            <button>Github Profile</button>
-                        </a>
-                    </div>
+        const { user } = this.props;
+        // console.log(this.props.user.name)
+        return (
+            <div key={user.id} className="profile-container">
+                <img width='150' src={user.avatar_url}/>
+                <div>
+                    <h2>{user.name}</h2>
+                    <p>{user.html_url}</p>
+                    <h3>Total Repos: {user.public_repos}</h3>
+                    <h3>Total Followers: {user.followers}</h3>
+                </div>
             </div>
         )
     }
