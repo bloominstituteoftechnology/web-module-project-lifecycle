@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios'
 
 class App extends React.Component {
@@ -19,10 +19,27 @@ class App extends React.Component {
         .catch(err=> {
             console.log(err);
         });
+
+        axios.get(`https://api.github.com/users/peterdavidconley`)
+        .then(resp => {
+          this.setState({
+            ...this.state,
+            profile: resp.data
+          })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+
 }
 
+  
+    
 
   render() {
+
+    console.log(this.state.profile)
     return(
     <div>
       <section>
@@ -32,12 +49,12 @@ class App extends React.Component {
       </section>
       <br/>
       <section>
-        <img height='250px' width='250px' src='https://avatars.githubusercontent.com/u/85258866?v=4'/>
+        <img height='250px' width='250px' src={this.state.profile.avatar_url}/>
         <div>
-          <h3>PETER CONLEY</h3>
-          <p>(peterdavidconley)</p>
-          <h4>TOTAL REPOS: </h4>
-          <h4>TOTAL FOLLOWERS:</h4>
+          <h3>{this.state.profile.name}</h3>
+          <p>{this.state.profile.login}</p>
+          <h4>TOTAL REPOS: {this.state.profile.public_repos}</h4>
+          <h4>TOTAL FOLLOWERS: {this.state.profile.followers}</h4>
         </div>
       </section>
       <section>
