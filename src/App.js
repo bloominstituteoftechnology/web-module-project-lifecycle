@@ -37,9 +37,14 @@ class App extends React.Component {
 
 }
 
-  render() {
+handleChange = (e) => {
+  this.setState({
+      ...this.state,
+      currentuser: e.target.value
+  });
+}
 
-    
+  render() {
     return(
     <div>
       <section>
@@ -49,6 +54,8 @@ class App extends React.Component {
           <input 
           type='text'
           placeholder="Search Github User"
+          onChange={this.handleChange}
+          value={this.state.currentuser}
           />
           <button>Search</button>
         </form>
