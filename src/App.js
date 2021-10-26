@@ -1,3 +1,4 @@
+
 import "./App.css";
 import { Component } from "react";
 
@@ -38,6 +39,15 @@ class App extends Component {
         </div>
       </>
     );
+
+import React from 'react';
+
+class App extends React.Component {
+  render() {
+    return(<div>
+      Github Card
+    </div>);
+
   }
 }
 

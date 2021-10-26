@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 
+
 img {
   border-radius: 50%;
   width: 260px;
@@ -57,4 +58,13 @@ button:hover {
 }
 .container {
   background-color: #151a21;
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
 }
