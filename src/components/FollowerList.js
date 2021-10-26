@@ -4,7 +4,7 @@ import Follower from './Follower'
 
 class FollowerList extends React.Component{
 
-    state = {
+    /* state = {
         followers: []
     }
 
@@ -19,12 +19,12 @@ class FollowerList extends React.Component{
             .catch(err=> {
                 console.log(err);
             });
-        }
+        } */
 
         render(){
             return(
                 <section>
-        { this.state.followers.map( (follower) => {return (
+        { this.props.followers.map( (follower) => {return (
         <Follower photourl={follower.avatar_url} username={follower.login}/>
         )}
         )}
