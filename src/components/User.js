@@ -4,7 +4,6 @@ import FollowerList from "./FollowerList";
 class User extends React.Component {
   
   render() {
-    // console.log(this.props.followers);
     return(
     <div className="user-div">
         <div className="profile-div">

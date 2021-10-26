@@ -13,7 +13,6 @@ class App extends React.Component {
   componentDidMount(){
     axios.get(`https://api.github.com/users/${this.state.input}`)
       .then(resp=> {
-        // console.log("didmount response: ", resp.data);
         this.setState({
           ...this.state,
           user: resp.data
@@ -25,7 +24,6 @@ class App extends React.Component {
   }
   componentDidUpdate(prevProps, prevState){
     if (this.state.user !== prevState.user){
-      // console.log("didupdate runs", prevState.user, this.state.user)
       axios.get(`https://api.github.com/users/${this.state.input}/followers`)
       .then(resp=> {
         this.setState({
@@ -36,11 +34,16 @@ class App extends React.Component {
       .catch(err=> {
         console.error(err);
       })
+      .finally(
+        this.setState({
+          ...this.state,
+          input: ""
+        })
+      )
     }
   }
 
   handleChange = (e) => {
-    // console.log(e.target.value);
     this.setState({
       ...this.state,
       input: e.target.value
@@ -52,7 +55,6 @@ class App extends React.Component {
     console.log(`search for ${this.state.input} in github`)
     axios.get(`https://api.github.com/users/${this.state.input}`)
       .then(resp=> {
-        // console.log("submit response: ", resp.data)
         this.setState({
           ...this.state,
           user: resp.data
