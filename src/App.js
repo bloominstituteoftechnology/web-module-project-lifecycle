@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import User from './components/User'
 import FollowerList from './components/FollowerList'
 import axios from 'axios'
+import './App.css'
 
 class App extends React.Component {
 
@@ -63,24 +64,28 @@ handleSubmit = (e) => {
   render() {
     return(
     <div>
-      <section>
+      <section className='githubinfo'>
         <h1>GITHUB INFO</h1>
+        <div>
           <button>Github Handle</button>
-        <form onSubmit={this.handleSubmit}>
-          <input 
-          type='text'
-          placeholder="Search Github User"
-          onChange={this.handleChange}
-          value={this.state.currentuser}
-          />
-          <button>Search</button>
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            <button>Search</button>
+            <input 
+            type='text'
+            placeholder="Search Github User"
+            onChange={this.handleChange}
+            value={this.state.currentuser}
+            />
+          </form>
+        </div>
       </section>
       <br/>
       <User profile={this.state.profile}/>
       <h2>FOLLOWERS:</h2>
       <br />
-      <FollowerList followers={this.state.followers}/>
+      <div className='followers'>
+        <FollowerList followers={this.state.followers}/>
+      </div>
     </div>);
   }
 }
