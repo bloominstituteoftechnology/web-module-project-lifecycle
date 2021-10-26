@@ -6,13 +6,12 @@ import axios from 'axios'
 class App extends React.Component {
 
   state = {
-    currentuser: 'peterdavidconley',
+    currentuser: '',
     profile: [],
     followers: [],
   }
 
   componentDidMount() {
-    
     axios.get(`https://api.github.com/users/peterdavidconley`)
     .then(resp => {
       this.setState({
@@ -34,8 +33,11 @@ class App extends React.Component {
             .catch(err=> {
                 console.log(err);
             });
-
 }
+
+/* componentDidUpdate(){
+  console.log('Component did update.')
+}*/
 
 handleChange = (e) => {
   this.setState({
@@ -44,13 +46,27 @@ handleChange = (e) => {
   });
 }
 
+handleSubmit = (e) => {
+  e.preventDefault();
+  axios.get(`https://api.github.com/users/${this.state.currentuser}`)
+            .then(resp=> {
+              console.log(resp)
+                /* this.setState({
+                    ...this.state,
+                }) */
+            })
+            .catch(err=> {
+                console.log(err);
+            })
+}
+
   render() {
     return(
     <div>
       <section>
         <h1>GITHUB INFO</h1>
           <button>Github Handle</button>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input 
           type='text'
           placeholder="Search Github User"
