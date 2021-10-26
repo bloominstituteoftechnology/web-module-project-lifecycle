@@ -1,9 +1,10 @@
 import React from 'react';
-
+import SearchBar from './components/Search';
 class App extends React.Component {
   render() {
     return(<div>
-      Github Card
+      <h1>Github Info</h1>
+      <SearchBar/>
     </div>);
   }
 }
