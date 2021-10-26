@@ -28,11 +28,33 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  border-radius: 50%;
+  width: 260px;
+  margin-top: 70px;
+}
+p {
+  color: white;
+}
+button {
+  background-color: rgb(37, 37, 44);
+  border-radius: 5px;
+  border-width: 1px;
+  width: 100px;
+  height: 25px;
+  margin: 5px;
+  color: white;
+}
+button:hover {
+  background-color: rgb(65, 65, 73);
+  border-color: grey;
+}
+.media {
+  display: flex;
+}
+.about {
+  margin-left: 200px;
+}
+.container {
+  background-color: #151a21;
 }
