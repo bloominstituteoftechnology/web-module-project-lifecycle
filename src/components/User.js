@@ -1,9 +1,14 @@
 import React from 'react';
-import axios from 'axios';
 
-const User = props => {
-    return (
-    <div> I am user </div>
-    )
+
+class User extends React.Component {
+    render(){
+        return (
+        <div>I am user {this.props.user.name}
+        
+        </div>
+        
+        ) 
+    }
 }
 export default User
