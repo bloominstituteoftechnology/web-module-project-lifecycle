@@ -1,16 +1,38 @@
 import React from 'react';
 
-const SearchBar = () => (
-    <form >
-    
-        <input
-            type="text"
-            id="header-search"
-            placeholder="github handle"
-            name="s" 
-        />
-        <button type="submit">Search</button>
-    </form>
-);
+class SearchBar extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+          input:""
+        }
+      }
+
+    handleChange = (e) => {
+        this.setState({
+            ...this.state,
+            input: e.target.value
+          });
+    }
+
+    handleSumbit = (e) => {
+        e.preventDefault()
+        this.props.updateUserInfoApi(this.state.input)
+    }
+    render() {
+        return(
+            <form onSubmit={this.handleSumbit}>
+                <input
+                    type="text"
+                    placeholder="github handle"
+                    name="s"
+                    onChange={this.handleChange}
+                />
+                <button type="submit">Search</button>
+            </form>
+        )
+    }
+
+}
 
 export default SearchBar;
