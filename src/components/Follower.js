@@ -3,7 +3,6 @@ import React from 'react';
 class Follower extends React.Component {
 
     handleClick = () => {
-        console.log("follower click in follower.js")
         this.props.followerClick(this.props.follower.login)
     }
   

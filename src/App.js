@@ -66,9 +66,9 @@ class App extends React.Component {
       })
   }
 
-  followerClick = (e) => {
-    console.log("follower click", e);
-    axios.get(`https://api.github.com/users/${e}`)
+  followerClick = (followerID) => {
+    console.log("follower click", followerID);
+    axios.get(`https://api.github.com/users/${followerID}`)
       .then(resp=> {
         this.setState({
           ...this.state,
