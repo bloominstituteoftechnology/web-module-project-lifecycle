@@ -85,9 +85,14 @@ class App extends React.Component {
       )
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(this.setState({
+        ...this.state,
+        input: "",
+      }))
   };
 
+  //CLICKING FOLLOWERS PULLS UP THEIR CARDS
   handleClickSubmit = (e) => {
     axios
       .all([
