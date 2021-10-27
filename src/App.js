@@ -8,12 +8,13 @@ const userName = 'Kseniyapl'
 
 class App extends React.Component {
   state = {
-    user:[],
-    input: ""
+    user: '',
+    input: userName,
+    followers:[]
   }
 
   componentDidMount() {
-    axios.get(`https://api.github.com/users/${userName}`)
+    axios.get(`https://api.github.com/users/${this.state.input}`)
     .then(resp=>{
      // console.log(resp.data)
       this.setState({
@@ -26,6 +27,20 @@ class App extends React.Component {
     })
   }
 
+  componentDidUpdate(){
+    axios.get(`https://api.github.com/users/${this.state.input}/followers`) 
+    .then(resp =>{
+       // console.log(resp)
+       this.setState({
+           ...this.state,
+           followers:resp.data
+       })
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+}
+
   handleChange = (e) =>{
     this.setState({
       ...this.state,
@@ -35,14 +50,14 @@ class App extends React.Component {
   handleSubmit = (e) =>{
     e.preventDefault();
     axios.get(`https://api.github.com/users/${this.state.input}`)
-    .then(resp =>{
-      this.setState({
-        ...this.state,
-        user:resp.data
+      .then(resp =>{
+        this.setState({
+          ...this.state,
+          user:resp.data
+        })
       })
       .catch(err=>{
         console.log(err)
-      })
     })
 
   }
@@ -55,7 +70,7 @@ class App extends React.Component {
         <button onClick={this.handleSubmit}>Search User</button>
       </form>
       <User user={this.state.user}/>
-      <FollowerList gitFollowers={this.state.user.login}/>
+      <FollowerList followers={this.state.followers}/>
     </div>);
   }
 }
