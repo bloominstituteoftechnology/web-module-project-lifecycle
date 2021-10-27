@@ -7,6 +7,83 @@
   pointer-events: none;
 }
 
+
+.card {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #E5DCC3;
+  border-radius: 6px;
+  width: 50%;
+  border: 1px solid red;
+}
+
+.container {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  /* height: 80vh;     */
+  /* margin: 2%; */
+  border: 1px solid red;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid red;
+}
+
+.form {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  /* margin: 2%; */
+  /* border: 1px solid red; */
+  width: 100%;
+  }
+
+.card h2 {
+  font-size: 2.5rem;  
+}
+
+.user {
+  display: flex;
+  flex-wrap: wrap;   
+  /* padding: 2%; */
+  /* border: 1px solid red; */
+}
+
+.user-info {
+  /* font-size: 2.5rem; */
+  /* display: flex;
+  flex-direction: column; */
+  /* margin: 10%; */
+  /* border: 1px solid red; */
+}
+
+input  {
+  /* margin: 1%; */
+  height: 3.5rem;
+  width: 300px;
+  margin: 8px 8px 8px 8px
+}
+
+button{
+  /* margin: 1%; */
+  height: 3.5rem;
+  width: 300px;
+  margin: 8px 8px 8px 8px
+}
+
+.card button {
+  margin: 1.5%;
+}
+
+.special-p {
+  width: 30%;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
