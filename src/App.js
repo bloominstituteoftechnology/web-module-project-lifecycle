@@ -23,7 +23,7 @@ class App extends React.Component {
         .catch(err=> {
             console.log(err);
         });
-}
+  }
 
   render() {
     return(
@@ -33,15 +33,14 @@ class App extends React.Component {
           <input />
           <button >Search</button>
           <div className="user">
-              {console.log('this.state', this.state.user.avatar_url)}
-              <img src={this.state.user.avatar_url} alt={this.state.user.login} />
+              <img src={this.state.user.avatar_url} alt={this.state.user.login} width ="400"/>
               <div className= "user-info">
                   <h2>{this.state.user.name}</h2>
                   <h3>TOTAL REPOS: {this.state.user.public_repos} </h3>
                   <h3>TOTAL Followers: {this.state.user.followers} </h3>
-              </div>  
-              {/* <FollowerList />              */}
+              </div>                             
           </div>
+          <FollowerList />
         </form>           
       </div>);
   }

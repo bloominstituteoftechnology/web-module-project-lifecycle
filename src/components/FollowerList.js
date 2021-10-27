@@ -10,7 +10,6 @@ class FollowerList extends React.Component {
         followers: []        
       }
 
-
     componentDidMount() {
         axios.get('https://api.github.com/users/beatlesm/followers')
             .then(res=> {
