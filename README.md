@@ -49,6 +49,7 @@ In this project you will build an application that allows for github user and fo
 * [x] Connect make sure that the test data within state correct displays within your User, FollowerList and Follower components.
 
 #### Load in the user and follower on mount
+
 > *We can now do our api calls to get our initial data*
 * [x] Make our user object and follower list state empty by default.
 * [x] Keep our searched user state your github username by default.
@@ -56,12 +57,14 @@ In this project you will build an application that allows for github user and fo
 * [ ] Use componentDidUpdate to load follower information ***only when the user slice of state changes value. Make be careful to avoid infinite loops while building this portion.***
 
 #### Build search capabilities within your APP
+
 > *Now let's allow users to search for new github usernames*
 * [x] Connect your form in App.js so that typing into a input updated your current user state.
-* [ ] When your form is submitted, make an api call on current user. Set the returned user data to state.
-* [ ] Ensure that followers is correctly updated.
+* [x] When your form is submitted, make an api call on current user. Set the returned user data to state.
+* [x] Ensure that followers is correctly updated.
 
 ### Task 3: Stretch goals
+
 - [ ] We are making several api calls of the same type in our code. How can we make this portion more dry?
 - [ ] Add in functionality so that when a follower is clicked, they will become the searched user. Have the UI update approprately.
 - [ ] Push your styling! Have fun!

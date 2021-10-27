@@ -51,14 +51,25 @@ handleSubmit = (e) => {
   e.preventDefault();
   axios.get(`https://api.github.com/users/${this.state.currentuser}`)
             .then(resp=> {
-              console.log(resp)
-                /* this.setState({
-                    ...this.state,
-                }) */
+              this.setState({
+                ...this.state,
+                profile: resp.data,
+              })
             })
             .catch(err=> {
                 console.log(err);
             })
+
+  axios.get(`https://api.github.com/users/${this.state.currentuser}/followers`)   
+  .then( resp => {
+    this.setState({
+      ...this.state,
+      followers: resp.data
+    })
+  })     
+  .catch(err => {
+    console.log(err)
+  })  
 }
 
   render() {
@@ -67,15 +78,14 @@ handleSubmit = (e) => {
       <section className='githubinfo'>
         <h1>GITHUB INFO</h1>
         <div>
-          <button>Github Handle</button>
           <form onSubmit={this.handleSubmit}>
-            <button>Search</button>
             <input 
             type='text'
             placeholder="Search Github User"
             onChange={this.handleChange}
             value={this.state.currentuser}
             />
+            <button>Search</button>
           </form>
         </div>
       </section>
