@@ -16,6 +16,7 @@ class App extends React.Component {
     followers_list: [],
   };
 
+  //initial condition - load my info
   componentDidMount() {
     axios
       .get("https://api.github.com/users/tinaxgao")
@@ -46,6 +47,7 @@ class App extends React.Component {
       });
   }
 
+  //search for user
   handleChange = (e) => {
     this.setState({
       ...this.state,
@@ -67,8 +69,11 @@ class App extends React.Component {
           public_repos: resp.data.public_repos,
           followers: resp.data.followers,
         });
-      }).catch(err => {console.log(err)});
-      axios
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
       .get(`https://api.github.com/users/${this.state.input}/followers`)
       .then((resp) => {
         this.setState({
@@ -93,9 +98,15 @@ class App extends React.Component {
           />
           <button onClick={this.handleSubmit}>Search</button>
         </form>
-        <User name={this.state.name} login={this.state.login} pic={this.state.avatar_url} repos={this.state.public_repos} followers={this.state.followers} />
+        <User
+          name={this.state.name}
+          login={this.state.login}
+          pic={this.state.avatar_url}
+          repos={this.state.public_repos}
+          followers={this.state.followers}
+        />
         <h3>Followers</h3>
-        <FollowerList />
+        <FollowerList followersList={this.state.followers_list} />
       </div>
     );
   }

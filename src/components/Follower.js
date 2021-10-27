@@ -4,8 +4,8 @@ class Follower extends React.Component {
   render() {
     return (
       <div className="follower-card">
-        <img src="https://avatars.githubusercontent.com/u/89364961?v=4" />
-        <h4>First Last</h4>
+        <img src={this.props.pic} />
+        <h4>{this.props.username}</h4>
       </div>
     );
   }

@@ -7,8 +7,8 @@ class User extends React.Component {
         <img src={this.props.pic} />
         <h2>{this.props.name}</h2>
         <h5>username: {this.props.login}</h5>
-        <h4>Repos: 37</h4>
-        <h4>Followers: 18</h4>
+        <h4>Repos: {this.props.repos}</h4>
+        <h4>Followers: {this.props.followers}</h4>
       </div>
     );
   }
