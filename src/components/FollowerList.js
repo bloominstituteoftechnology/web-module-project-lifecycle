@@ -5,13 +5,13 @@ import Follower from './Follower'
 
 
 class FollowerList extends React.Component {
-
-    state = {
+    
+    state = {        
         followers: []        
       }
 
-    componentDidMount() {
-        axios.get('https://api.github.com/users/beatlesm/followers')
+      componentDidUpdate(prevProps, prevState) {
+        axios.get(`https://api.github.com/users/${this.props.user.login}/followers`)
             .then(res=> {
             //   debugger
               this.setState({

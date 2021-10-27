@@ -25,13 +25,35 @@ class App extends React.Component {
         });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();    
+    axios.get(`https://api.github.com/users/${this.state.input}`)
+        .then(resp=> {
+            this.setState({
+                ...this.state,
+                user: resp.data
+            })
+        })
+        .catch(err=> {
+            console.log(err);
+        })
+}
+
+  handleChange = (e) => {
+    this.setState({
+        ...this.state,
+        input: e.target.value
+    });  
+    console.log('input', this.state.input);  
+}
+
   render() {
     return(
       <div className="container">      
         <h1> GITHUB INFO</h1>
         <form className="form"> 
-          <input />
-          <button >Search</button>
+          <input value={this.state.input} onChange={this.handleChange}/>
+          <button onClick={this.handleSubmit}>Search</button>
           <div className="user">
               <img src={this.state.user.avatar_url} alt={this.state.user.login} width ="400"/>
               <div className= "user-info">
@@ -40,7 +62,8 @@ class App extends React.Component {
                   <h3>TOTAL Followers: {this.state.user.followers} </h3>
               </div>                             
           </div>
-          <FollowerList />
+          <h2> Followers: </h2>
+          <FollowerList user={this.state.user}/>
         </form>           
       </div>);
   }
