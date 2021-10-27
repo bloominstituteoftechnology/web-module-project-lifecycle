@@ -6,8 +6,8 @@ class FollowerList extends React.Component {
     state = {
         followers:[]
     }
- componentDidMount(){
-     axios.get(`https://api.github.com/users/${this.props.userName}/followers`) 
+ componentDidUpdate(){
+     axios.get(`https://api.github.com/users/${this.props.gitFollowers}/followers`) 
      .then(resp =>{
         // console.log(resp)
         this.setState({
