@@ -16,7 +16,7 @@ class App extends React.Component {
     followers_list: [],
   };
 
-  //initial condition - load my info
+  //INITIAL CONDITION-LOAD MY INFO
   componentDidMount() {
     axios
       .get("https://api.github.com/users/tinaxgao")
@@ -47,7 +47,7 @@ class App extends React.Component {
       });
   }
 
-  //search for user
+  //SEARCH FOR USER
   handleChange = (e) => {
     this.setState({
       ...this.state,
@@ -58,29 +58,63 @@ class App extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .get(`https://api.github.com/users/${this.state.input}`)
-      .then((resp) => {
-        this.setState({
-          ...this.state,
-          login: resp.data.login,
-          id: resp.data.id,
-          name: resp.data.name,
-          avatar_url: resp.data.avatar_url,
-          public_repos: resp.data.public_repos,
-          followers: resp.data.followers,
-        });
-      })
+      .all([
+        axios.get(`https://api.github.com/users/${this.state.input}`),
+        axios.get(`https://api.github.com/users/${this.state.input}/followers`),
+      ])
+      .then(
+        axios.spread((...resp) => {
+          const respUser = resp[0];
+          const respFollowers = resp[1];
+
+          this.setState({
+            ...this.state,
+            login: respUser.data.login,
+            id: respUser.data.id,
+            name: respUser.data.name,
+            avatar_url: respUser.data.avatar_url,
+            public_repos: respUser.data.public_repos,
+            followers: respUser.data.followers,
+          });
+
+          this.setState({
+            ...this.state,
+            followers_list: respFollowers.data,
+          });
+        })
+      )
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  handleClickSubmit = (e) => {
     axios
-      .get(`https://api.github.com/users/${this.state.input}/followers`)
-      .then((resp) => {
-        this.setState({
-          ...this.state,
-          followers_list: resp.data,
-        });
-      })
+      .all([
+        axios.get(`https://api.github.com/users/${e}`),
+        axios.get(`https://api.github.com/users/${e}/followers`),
+      ])
+      .then(
+        axios.spread((...resp) => {
+          const respUser = resp[0];
+          const respFollowers = resp[1];
+
+          this.setState({
+            ...this.state,
+            login: respUser.data.login,
+            id: respUser.data.id,
+            name: respUser.data.name,
+            avatar_url: respUser.data.avatar_url,
+            public_repos: respUser.data.public_repos,
+            followers: respUser.data.followers,
+          });
+
+          this.setState({
+            ...this.state,
+            followers_list: respFollowers.data,
+          });
+        })
+      )
       .catch((err) => {
         console.log(err);
       });
@@ -106,7 +140,7 @@ class App extends React.Component {
           followers={this.state.followers}
         />
         <h3>Followers</h3>
-        <FollowerList followersList={this.state.followers_list} />
+        <FollowerList followersList={this.state.followers_list} clickSubmit={this.handleClickSubmit} />
       </div>
     );
   }

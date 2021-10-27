@@ -1,14 +1,19 @@
 import React from "react";
 
-class Follower extends React.Component {
-  render() {
+const Follower =(props) => {
+
+    const handleClick =()=>{
+        props.clickSubmit(props.username);
+    };
+
     return (
-      <div className="follower-card">
-        <img src={this.props.pic} />
-        <h4>{this.props.username}</h4>
+        
+      <div onClick={handleClick} className="follower-card">
+        <img src={props.pic} />
+        <h4>{props.username}</h4>
       </div>
     );
-  }
+
 }
 
 export default Follower;
