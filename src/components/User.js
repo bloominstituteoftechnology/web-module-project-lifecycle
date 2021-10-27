@@ -15,7 +15,7 @@ class User extends React.Component {
                 <p>Total Followers: {this.props.user.followers}</p>
             </div>
         </div>
-        <FollowerList followers={this.props.followers}/>
+        <FollowerList followers={this.props.followers} followerClick={this.props.followerClick}/>
     </div>
     );
   }

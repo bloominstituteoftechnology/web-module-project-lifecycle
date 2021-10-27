@@ -11,7 +11,7 @@ class FollowerList extends React.Component {
                 <div className="list-items">
                     {
                         this.props.followers.map(x => {
-                            return <Follower follower={x}/>
+                            return <Follower followerClick={this.props.followerClick} follower={x}/>
                         })
                     }
                 </div>

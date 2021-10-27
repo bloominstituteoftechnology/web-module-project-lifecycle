@@ -11,6 +11,7 @@ class App extends React.Component {
   };
 
   componentDidMount(){
+    console.log('did mount runs')
     axios.get(`https://api.github.com/users/${this.state.input}`)
       .then(resp=> {
         this.setState({
@@ -23,8 +24,9 @@ class App extends React.Component {
       })
   }
   componentDidUpdate(prevProps, prevState){
+    console.log('did update runs')
     if (this.state.user !== prevState.user){
-      axios.get(`https://api.github.com/users/${this.state.input}/followers`)
+      axios.get(`https://api.github.com/users/${this.state.user.login}/followers`)
       .then(resp=> {
         this.setState({
           ...this.state,
@@ -52,8 +54,21 @@ class App extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`search for ${this.state.input} in github`)
     axios.get(`https://api.github.com/users/${this.state.input}`)
+      .then(resp=> {
+        this.setState({
+          ...this.state,
+          user: resp.data
+        })
+      })
+      .catch(err=> {
+        console.error(err);
+      })
+  }
+
+  followerClick = (e) => {
+    console.log("follower click", e);
+    axios.get(`https://api.github.com/users/${e}`)
       .then(resp=> {
         this.setState({
           ...this.state,
@@ -73,7 +88,7 @@ class App extends React.Component {
         <input placeholder="search github users"value={this.state.input} type="text" name="searchText" onChange={this.handleChange}/>
         <button>search</button>
       </form>
-      <User user={this.state.user} followers={this.state.followers}/>
+      <User user={this.state.user} followers={this.state.followers} followerClick={this.followerClick}/>
     </div>);
   }
 }
