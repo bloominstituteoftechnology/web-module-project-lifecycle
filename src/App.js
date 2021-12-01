@@ -26,7 +26,7 @@ componentDidMount() {
     <div>
       <h2>My Github User Information</h2>
         <User />
-        {/* <FollowerList /> */}
+        <FollowerList />
     </div>);
   }
 }
