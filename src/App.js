@@ -11,13 +11,13 @@ class App extends React.Component {
 componentDidMount() {
     axios.get('https://api.github.com/users/Shivneel-Prasad')
         .then(response => {
-            this.setState({
-                ...this.state,
-                user: response.data
-            })
+          this.setState({
+            ...this.state,
+            user: response.data
+          })
         })
         .catch(errors => {
-            console.log(errors);
+          console.log(errors);
         })
 }
 

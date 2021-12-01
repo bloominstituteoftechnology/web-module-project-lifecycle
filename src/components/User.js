@@ -11,22 +11,22 @@ class User extends React.Component {
 
     componentDidMount() {
         axios.get('https://api.github.com/users/Shivneel-Prasad')
-            .then(response => {
-                this.setState({
-                    ...this.state,
-                    user: response.data
-                })
-            })
-            .catch(errors => {
-                console.log(errors);
-            })
+          .then(response => {
+            this.setState({
+              ...this.state,
+              user: response.data
+          })
+        })
+       .catch(errors => {
+          console.log(errors);
+      })
     }
 
     render(){
         const { user } = this.state;
           if(!this.state.user)
             return (
-                <p>Loading Information...</p>
+              <p>Loading Information...</p>
             )
         return (
             <div>

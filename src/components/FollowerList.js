@@ -5,43 +5,43 @@ class FollowerList extends React.Component {
     constructor(){
         super();
         this.state = {
-            followersInfo: [],
-            followers: [],
-            liveFollowers: []
+          followersInfo: [],
+          followers: [],
+          liveFollowers: []
         }
     }
 
     componentDidMount(){
         axios.get('https://api.github.com/users/Shivneel-Prasad/followers')
-            .then(response => {
-                this.setState({
-                    ...this.state,
-                    followersInfo: response.data,
-                    liveFollowers: response.data
-                });
-            })
+          .then(response => {
+              this.setState({
+                ...this.state,
+                followersInfo: response.data,
+                liveFollowers: response.data
+              });
+          })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
         axios.get(`https://api.github.com/users/Shivneel-Prasad/${this.state.followers}`)
-            .then(resp => {
-                this.setState({
-                    ...this.state,
-                    followersInfo: resp.data,
-                    liveFollowers: resp.data
-                })
+          .then(resp => {
+            this.setState({
+              ...this.state,
+              followersInfo: resp.data,
+              liveFollowers: resp.data
             })
+        })
     }
 
     handleChange = (e) => {
         this.setState({
-            ...this.state,
-            followers: e.target.value,
-            liveFollowers: this.state.followersInfo.filter(shadow => {
-                console.log(shadow);
-                return shadow.LF.includes(e.target.value)
-            })
+          ...this.state,
+          followers: e.target.value,
+          liveFollowers: this.state.followersInfo.filter(shadow => {
+            console.log(shadow);
+            return shadow.LF.includes(e.target.value)
+          })
         })
     }
 
@@ -49,37 +49,37 @@ class FollowerList extends React.Component {
         const {followers} = this.state;
           if(!this.state.followers) 
             return (
-                <p>Loading Information...</p>
+              <p>Loading Information...</p>
             )
         return (
+        <div>
             <div>
-              <div>
-                <form >
-                    <input value={this.state.followers} onChange={this.handleChange} />
-                    <button onClick={this.handleSubmit} >Lookup  Followers</button>
-                </form>
-              </div>
-              <div>
+              <form >
+                <input value={this.state.followers} onChange={this.handleChange} />
+                <button onClick={this.handleSubmit} >Lookup  Followers</button>
+              </form>
+            </div>
+            <div>
                 {
-                  this.state.liveFollowers.map(LF => {
+                this.state.liveFollowers.map(LF => {
                     console.log(LF);
                     return (
-                      <div>
+                    <div>
                         <div className='followers-Pic'>
-                            <img width={250} src={LF.avatar_url} alt='List of Followers Profile' />
+                        <img width={250} src={LF.avatar_url} alt='List of Followers Profile' />
                         </div>
                         <div>
-                            <h3>Username: {LF.login}</h3>
-                            <p>Github Profile: 
+                        <h3>Username: {LF.login}</h3>
+                        <p>Github Profile: 
                             <a href={LF.html_url}>{LF.html_url}</a>
-                            </p>
+                        </p>
                         </div>
-                      </div>
+                    </div>
                     )
-                    })
+                })
                 }  
-              </div>
             </div>
+        </div>
         );
     }
 }
