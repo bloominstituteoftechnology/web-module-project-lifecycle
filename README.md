@@ -10,7 +10,7 @@ This module explored lifecycle methods in class components. In your project you 
 - Use a submit event handler to `POST` a new resource to the server
 - Use a click handler to `PATCH` an existing resource on the server
 - Update the frontend to keep it in sync with the state of the server
-- Use frontend filtering to display only some resources
+- Use frontend filtering to display only some resources 
 
 ## Introduction
 
