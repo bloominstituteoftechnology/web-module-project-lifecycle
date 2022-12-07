@@ -76,10 +76,19 @@ ul, form {
   margin: 1rem 0 1rem 0;
 }
 
-.todo {
+.task {
   padding: 0.15rem;
 }
 
-.todo:hover {
+.task:hover {
+  cursor: pointer;
+}
+
+.taskcompleted {
+  text-decoration: line-through;
+  padding: 0.15rem;
+}
+
+.taskcompleted:hover {
   cursor: pointer;
 }
