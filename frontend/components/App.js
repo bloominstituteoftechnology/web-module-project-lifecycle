@@ -87,7 +87,7 @@ export default class App extends React.Component {
   render() {
     console.log('App: Rendered Component', this.state.todoList);
     return (
-      <div className='App'>
+      <div className='App' id="list">
         <div id="error">Error:{this.state.error}</div>
         <TodoList todoItems={this.state.todoList} toggleCompleted={this.toggleCompleted} hideCompleted={this.state.hideCompleted} />
         <Form inputValue={this.state.inputValue} inputChange={this.inputChange} handleSubmit={this.handleSubmit} />
