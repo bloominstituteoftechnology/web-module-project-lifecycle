@@ -11,9 +11,11 @@ export default class App extends React.Component {
     this.state = {
       todoList: [],
       inputValue: '',
-      hideCompleted: false
+      hideCompleted: false,
+      error:''
     }
   }
+  axioserror = error => this.setState({...this.state, error: error.response.message})
 
   componentDidMount(){
     console.log('App: Component Mounted');
@@ -78,13 +80,15 @@ export default class App extends React.Component {
           inputValue: ''
         })
       })
-      .catch(err => console.log('App: Failed to post to API', err));
+      .catch(
+        this.axioserror());
   }
 
   render() {
     console.log('App: Rendered Component', this.state.todoList);
     return (
       <div className='App'>
+        <div id="error">Error:{this.state.error}</div>
         <TodoList todoItems={this.state.todoList} toggleCompleted={this.toggleCompleted} hideCompleted={this.state.hideCompleted} />
         <Form inputValue={this.state.inputValue} inputChange={this.inputChange} handleSubmit={this.handleSubmit} />
         <button onClick={this.toggleHidden}>{this.state.hideCompleted ? 'Show Completed' : 'Hide Completed'}</button>
