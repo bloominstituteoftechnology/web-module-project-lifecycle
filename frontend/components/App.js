@@ -8,6 +8,7 @@ export default class App extends React.Component {
     super();
     this.state = {
       todos: [],
+      error: '',
     }
   }
 
@@ -16,7 +17,9 @@ export default class App extends React.Component {
     .then(res => {
       this.setState({...this.state, todos: res.data.data})
     })
-    .catch(err => console.error(err))
+    .catch(err => {
+      this.setState({...this.state, error: err.response.data.message})
+    })
   }
 
   componentDidMount(){
@@ -25,6 +28,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
+        <div id='error'>Error:{this.state.error}</div>
         <div id = 'todos'>
           <h2>Todos:</h2>
           {
