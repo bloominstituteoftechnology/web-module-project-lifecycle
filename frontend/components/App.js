@@ -23,23 +23,24 @@ export default class App extends React.Component {
     .then(res => {
       this.fetchAllTodos()
     })
-    .catch(err => this.setState({...this.state, error: err.response.data.message }))
+    .catch(this.setAxiosResponseErr)
   }
 
   onTodoFormSubmit = evt => {
     evt.preventDefault()
     this.postNewTodo()
   }
-
+  setAxiosResponseErr = (err) => this.setState({...this.state, error: err.response.data.message})
+  resetForm = () => 
+    this.setState({...this.state, todoNameInput: ''})
+  
   fetchAllTodos = () =>{
     axios.get(URL)
     .then(res => {
       this.setState({...this.state, todos: res.data.data})
-      this.setState({...this.state, todoNameInput: ''})
+      this.resetForm()
     })
-    .catch(err => {
-      this.setState({...this.state, error: err.response.data.message})
-    })
+    .catch(this.setAxiosResponseErr)
   }
 
   componentDidMount(){
