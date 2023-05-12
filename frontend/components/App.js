@@ -28,13 +28,25 @@ export default class App extends React.Component {
       todos: [...this.state.todos, newTask],
     });
   };
+
+  handleCompleted = () => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter((todo) => {
+        return todo.completed === false;
+      }),
+    });
+  };
   render() {
     const { todos } = this.state;
     console.log(this.state);
     return (
       <div>
         <TodoList todos={todos} />
-        <Form handleAdd={this.handleAdd} />
+        <Form
+          handleAdd={this.handleAdd}
+          handleCompleted={this.handleCompleted}
+        />
       </div>
     );
   }

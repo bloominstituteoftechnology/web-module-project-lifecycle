@@ -13,6 +13,11 @@ export default class Form extends React.Component {
     this.setState({ ...this.state, newTask: "" });
   };
 
+  completedTask = (evt) => {
+    evt.preventDefault();
+    this.props.handleCompleted();
+  };
+
   handleChange = (evt) => {
     evt.preventDefault();
     this.setState({ ...this.state, newTask: evt.target.value });
@@ -29,7 +34,7 @@ export default class Form extends React.Component {
           />
           <button onClick={this.newItem}>Add</button>
         </div>
-        <button>Remove Completed</button>
+        <button onClick={this.completedTask}>Remove Completed</button>
       </form>
     );
   }
