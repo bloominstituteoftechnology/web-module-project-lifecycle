@@ -1,31 +1,28 @@
 import React from "react";
 import Form from "./Form";
 import TodoList from "./TodoList";
+import axios from "axios";
 const URL = "http://localhost:9000/api/todos";
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-          task: "",
-          id: Date.now(),
-          completed: false,
-        },
-      ],
+      todos: [],
+      error: "",
     };
   }
 
   handleAdd = (input) => {
     const newTask = {
-      task: input,
+      name: input,
       id: Date.now(),
       completd: false,
     };
     this.setState({
       ...this.state,
       todos: [...this.state.todos, newTask],
+      error: "",
     });
   };
 
@@ -53,16 +50,38 @@ export default class App extends React.Component {
     });
   };
 
+  componentDidMount = () => {
+    axios
+      .get(`${URL}`)
+      .then((res) => {
+        console.log(res);
+        this.setState({ ...this.state, todos: res.data.data });
+      })
+      .catch((err) => {
+        this.setState({ ...this.state, error: err.response.data.message });
+      });
+  };
+
+  postToDo = (input) => {
+    axios
+      .post(URL, { name: input })
+      .then((res) => {
+        this.handleAdd(input);
+        debugger;
+      })
+      .catch((err) => {
+        debugger;
+      });
+  };
+
   render() {
     const { todos } = this.state;
-    console.log(this.state);
+    console.log(this.state.input);
     return (
       <div>
+        <h3>Error : {this.state.error}</h3>
         <TodoList toggleCompleted={this.toggleCompleted} todos={todos} />
-        <Form
-          handleAdd={this.handleAdd}
-          handleCompleted={this.handleCompleted}
-        />
+        <Form postToDo={this.postToDo} handleCompleted={this.handleCompleted} />
       </div>
     );
   }

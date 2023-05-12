@@ -8,6 +8,7 @@ export default class TodoList extends React.Component {
   render() {
     return (
       <div>
+        <h2 style={{ textDecoration: "underline" }}>Todo List: </h2>
         <ul>
           {this.props.todos.map((todo) => {
             return (
