@@ -50,16 +50,21 @@ export default class App extends React.Component {
     });
   };
 
-  componentDidMount = () => {
+  setAxiosErrors = (err) =>
+    this.setState({ ...this.state, error: err.response.data.message });
+
+  getToDos = () => {
     axios
       .get(`${URL}`)
       .then((res) => {
         console.log(res);
         this.setState({ ...this.state, todos: res.data.data });
       })
-      .catch((err) => {
-        this.setState({ ...this.state, error: err.response.data.message });
-      });
+      .catch(this.setAxiosErrors);
+  };
+
+  componentDidMount = () => {
+    this.getToDos();
   };
 
   postToDo = (input) => {
@@ -67,11 +72,8 @@ export default class App extends React.Component {
       .post(URL, { name: input })
       .then((res) => {
         this.handleAdd(input);
-        debugger;
       })
-      .catch((err) => {
-        debugger;
-      });
+      .catch(this.setAxiosErrors);
   };
 
   render() {
