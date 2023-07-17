@@ -10,8 +10,14 @@ export default class Form extends React.Component {
     this.props.onSubmitTodo(event);
   }
 
+  handleClear = () => {
+    this.props.handleClearButton();
+  }
+
+
   render() {
     return (
+      <div>
       <form id="todoForm" onSubmit={this.handleSubmit}> 
         <input
         value={this.props.todoInput}
@@ -19,9 +25,10 @@ export default class Form extends React.Component {
         type="text"
         placeholder='Type todo'
         />
-        <button>Submit</button>
-        <button>Clear Completed</button>
+        <button type="submit">Submit</button>
       </form>
+      <button onClick={this.handleClear}>Clear Completed</button>
+      </div>
     )
   }
 }

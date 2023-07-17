@@ -18,6 +18,31 @@ export default class App extends React.Component {
     }
   }
 
+
+  handleClearButton = () => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter(element => {
+        return (element.completed === false)
+      })
+    })
+  }
+
+    toggleClick = (id) => {
+      axios.patch(`${URL}/${id}`)
+      .then(res => {
+        this.setState({
+          ...this.state, todos: this.state.todos.map(element => {
+            if (element.id !== id) return element
+            return res.data.data
+          })
+        })
+      })
+      .catch(this.setAxiosResponseError)
+    }
+
+
+
     onChangeTodoInput = (event) => {
       const { value } = event.target
       this.setState({
@@ -26,42 +51,44 @@ export default class App extends React.Component {
       })
     }
 
+    setAxiosResponseError = err => this.setState({
+      ...this.state, error: {
+        message: err.response.data.message,
+        status: true
+      }
+    })
+
     fetchAllTodos = () => {
       axios.get(URL)
       .then(res => {
         this.setState({
-          ...this.state, todos: res.data.data, error: {
-            status: false
-          }
+          ...this.state, todos: res.data.data, error: {}
         })
       })
-      .catch(err => {
-        this.setState({
-          ...this.state, error: {
-            message: err.response.data.message,
-            status: !this.state.error.status
-          }
-        })
+      .catch(this.setAxiosResponseError)
+    }
+
+    resetForm = () => {
+      this.setState({
+        ...this.state,
+        todoNameInput: ""
       })
     }
 
     postNewTodo = () => {
       axios.post(URL, {name: this.state.todoNameInput})
       .then(res => {
-        this.fetchAllTodos();
         this.setState({
           ...this.state,
-          todoNameInput: ""
-        })
-      })
-      .catch(err => {
-        this.setState({
-          ...this.state, error: {
-            message: err.response.data.message,
-            status: !this.state.error.status
+          todos: this.state.todos.concat(res.data.data),
+          error: {
+            message: "",
+            status: false
           }
         })
+        this.resetForm();
       })
+      .catch(this.setAxiosResponseError)
     }
 
     onSubmitTodo = (event) => {
@@ -79,8 +106,8 @@ export default class App extends React.Component {
       <div>
         {this.state.error.status? <div id="error">Error: {this.state.error.message}</div> : <></>}
         <h2>Todos:</h2>
-        <TodoList data={todos}/>
-        <Form todoInput={this.state.todoNameInput} onChangeTodoInput={this.onChangeTodoInput} onSubmitTodo={this.onSubmitTodo}></Form>
+        <TodoList data={todos} toggleClick={this.toggleClick}/>
+        <Form todoInput={this.state.todoNameInput} onChangeTodoInput={this.onChangeTodoInput} onSubmitTodo={this.onSubmitTodo} handleClearButton={this.handleClearButton}></Form>
       </div>
     )
   }
